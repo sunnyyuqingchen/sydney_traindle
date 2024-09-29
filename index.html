@@ -1,0 +1,44 @@
+<!DOCTYPE HTML> 
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sydney Traindle</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+
+
+<body onload="autocomplete()">
+    
+    <h3 class="div1">Sydney Traindle</h3>
+    
+
+
+    <div class = "content">
+      A green box for "Lines" means that the answer is on the same lines as your guess.
+    </br>
+      A yellow box for "Lines" means that the answer has a line in common with your guess.
+    </br>
+      A red box means it is has none.
+    </br>
+      &#9650 means that the answer is further from central / has more monthly users on average. 
+    </br>
+      &#9660 means that the answer is closer to central / has less monthly users on average. 
+    </br>
+      "Stations until" is the amount of stations on the shortest path to the answer from your guess.  
+
+      <div class="autocomplete" style="width:300px;">
+        <input id="myInput" type="text" name="stationGuess" placeholder="Station">
+        <button id ="myBtn">Submit</button>
+      </div>
+
+
+    <div id="gameBoard"></div>
+
+    <div class="footer">Made by Hemang Punyane. Please send feedback and suggestions to <a href= "mailto: hempunyane@gmail.com"> hempunyane@gmail.com </a></div>
+    <script type="text/javascript" src="script.js"> </script>
+</div>
+</body>
+</html>
