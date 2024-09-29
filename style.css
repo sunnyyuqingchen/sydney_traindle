@@ -102,6 +102,7 @@ html *{
     flex-direction: column;
     text-align: center;
     justify-content: center;
+    width: 100%;
 
   }
   /* Displaying lines */
