@@ -333,7 +333,8 @@ function autocomplete(inp, arr) {
   /* Compare Lines */
   /* Initialisations*/
 
-  let now = (Math.floor((Date.now()/1000 + 11*3600)/86400) + 8) % 170;
+  // let now = (Math.floor((Date.now()/1000 + 11*3600)/86400) + 8) % 170;
+  now = Math.floor(Math.random()*170)
   answer = solutions[now];
 
   answerIndex = stations.indexOf(answer);
