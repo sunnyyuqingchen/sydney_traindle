@@ -7,7 +7,6 @@ html *{
 
 .content{
   display: flex;
-
   flex-direction: column;
   align-items: center;
 }
@@ -131,7 +130,7 @@ html *{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightgreen;
+    background-color: #019a01;
     color: black;
 
   }.linesHalfCorrectGuessBox {
@@ -145,7 +144,8 @@ html *{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightyellow;
+    background-color: #ffc425;
+    color: black;
 
   }
   .linesWrongGuessBox {
@@ -230,7 +230,7 @@ html *{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightgreen;
+    background-color: #019a01;
     color: black;
   }
   
@@ -259,7 +259,7 @@ html *{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightyellow;
+    background-color: yellow;
     color: black;
   }
 
@@ -302,7 +302,7 @@ html *{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightgreen;
+    background-color: #019a01;
     color: black;
   }
 
