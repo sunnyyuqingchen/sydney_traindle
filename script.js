@@ -154,7 +154,7 @@ function autocomplete(inp, arr) {
   function checkDate(){
       var nowDate = new Date(); 
       var dateNow = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate(); 
-      if (sessionStorageStorage.getItem("dateLastPlayed") === null) {
+      if (sessionStorage.getItem("dateLastPlayed") === null) {
         sessionStorage.setItem("dateLastPlayed", dateNow);
         var todayGuesses = [];
         sessionStorage.setItem("todayGuesses", JSON.stringify(todayGuesses));
