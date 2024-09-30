@@ -5,3 +5,4 @@ Planned upcoming changes:
 - Adding animations
 - Matching TfNSW design standards
 - Adding metro lines
+- Better mobile functionality
