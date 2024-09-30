@@ -116,7 +116,7 @@ function autocomplete(inp, arr) {
     if(station == "reset"){
       document.getElementById("myInput").value = "";
       todayGuesses=[]
-      localStorage.setItem("todayGuesses",JSON.stringify(todayGuesses));
+      sessionStorage.setItem("todayGuesses",JSON.stringify(todayGuesses));
 
       while(gameBoard.firstChild && gameBoard.removeChild(gameBoard.firstChild));
       initBoard();
@@ -128,7 +128,7 @@ function autocomplete(inp, arr) {
     else if(stations.includes(station) && !todayGuesses.includes(station)){
       document.getElementById("myInput").value = "";
       todayGuesses.push(station);
-      localStorage.setItem("todayGuesses", JSON.stringify(todayGuesses));
+      sessionStorage.setItem("todayGuesses", JSON.stringify(todayGuesses));
   
 
       while(gameBoard.firstChild && gameBoard.removeChild(gameBoard.firstChild));
@@ -154,23 +154,23 @@ function autocomplete(inp, arr) {
   function checkDate(){
       var nowDate = new Date(); 
       var dateNow = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate(); 
-      if (localStorage.getItem("dateLastPlayed") === null) {
-        localStorage.setItem("dateLastPlayed", dateNow);
+      if (sessionStorageStorage.getItem("dateLastPlayed") === null) {
+        sessionStorage.setItem("dateLastPlayed", dateNow);
         var todayGuesses = [];
-        localStorage.setItem("todayGuesses", JSON.stringify(todayGuesses));
+        sessionStorage.setItem("todayGuesses", JSON.stringify(todayGuesses));
       }
       else{
-        if (localStorage.getItem("dateLastPlayed") !== dateNow){
+        if (sessionStorage.getItem("dateLastPlayed") !== dateNow){
           var todayGuesses = [];
-          localStorage.setItem("todayGuesses", JSON.stringify(todayGuesses));
-          localStorage.setItem("dateLastPlayed", dateNow);
+          sessionStorage.setItem("todayGuesses", JSON.stringify(todayGuesses));
+          sessionStorage.setItem("dateLastPlayed", dateNow);
         }
       }
   }   
   
   /* Loads guesses from local storage */
   function loadGuesses(){
-    todayGuesses = JSON.parse(localStorage.getItem("todayGuesses"));
+    todayGuesses = JSON.parse(sessionStorage.getItem("todayGuesses"));
 
   }
 
