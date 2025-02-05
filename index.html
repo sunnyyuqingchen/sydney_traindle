@@ -1,54 +1,13 @@
-<!DOCTYPE HTML> 
-<html>
-<head>
-<meta name="viewport" content="width=1276px, initial-scale=1.0">
-<title>Sydney Traindle</title>
-<link rel="stylesheet" href="style.css">
-
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E4WET68TDD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-E4WET68TDD');
-</script>
-
-
-
-<body onload="autocomplete()">
-    
-    <h1 class="div1">🚂 Sydney Traindle 🚂</h1>
-    
-
-
-    <div class = "content">
-      A green box for "Lines" means that the answer is on the same lines as your guess.
-    </br>
-      A yellow box for "Lines" means that the answer has a line in common with your guess.
-    </br>
-      A red box means it is has none.
-    </br>
-      &#9650 means that the answer is further from central / has more monthly users on average. 
-    </br>
-      &#9660 means that the answer is closer to central / has less monthly users on average. 
-    </br>
-      "Stations away" is how many stations away the answer is from your guess. 
-    </br>  
-      For example, Town Hall Station is 2 stations away from Redfern Station.  
-
-      <div class="autocomplete" style="width:300px;">
-        <input id="myInput" type="text" name="stationGuess" placeholder="Station">
-        <button id ="myBtn">Submit</button>
-      </div>
-
-    <div>
-    <div id="gameBoard"></div>
-    </div>
-    <div class="footer">Made by Hemang Punyane. Please send feedback and suggestions to <a href= "mailto: hempunyane@gmail.com"> hempunyane@gmail.com </a></div>
-    <script type="text/javascript" src="script.js"> </script>
-</div>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚂</text></svg>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sydney Traindle</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
