@@ -60,10 +60,10 @@ const StationTable = ({ selectedStations, answer }) => {
         <thead>
           <tr>
             <th style={{ width: "170px" }}>Station</th>
-            <th style={{ width: "160px" }}>Lines</th>
+            <th style={{ width: "100px" }}>Lines</th>
             <th style={{ width: "170px" }}>Rail distance from Central Station</th>
             <th style={{ width: "120px" }}>Average monthly users</th>
-            <th style={{ width: "80px" }}>Stations away</th>
+            <th style={{ width: "70px" }}>Stations away</th>
           </tr>
         </thead>
         <tbody>

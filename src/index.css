@@ -14,7 +14,9 @@ body {
 .title {
   color: white;
   font-weight: bold;
+  font-size: 50px;
   margin: auto;
+  margin-top: 5vh;
 }
 
 .autocomplete {
@@ -107,6 +109,7 @@ input {
 
 .station-table table {
   width: 100%;
+  border-spacing: 3px 0px;
 }
 
 .station-table td {
@@ -116,9 +119,13 @@ input {
 }
 
 .station-table th {
+  position: relative;
   padding: 10px;
   font-weight: bold;
-  background-color: #d2d6e6;
+  background-color: #6e6764;
+  color: #141313;
+  border-radius: 10px 10px 0px 0px;
+  height: 50px;
 }
 
 .station-table .row-even {
@@ -137,24 +144,31 @@ input {
 }
 
 .station-table .incorrect {
-  background-color:#a83236;
+  background-color:#df666a;
+  color: #f1e9e9;
+  font-weight: 700;
 }
 
 .station-table .correct {
-  background-color:#1c942c;
+  background-color:#44c555;
+  color: #f1e9e9;
+  font-weight: 700;
 }
 
 .station-table .partial {
-  background-color:#e0b12d;
+  background-color:#f1ca5c;
+  color: #f1e9e9;
+  font-weight: 700;
 }
 
 .win-message {
-  background-color: #1c942c;
+  background-color: #44c555;
   color: white;
   padding: 10px;
   border-radius: 5px;
   font-size: 16px;
   text-align: center;
+  font-weight: 700;
 }
 
 .lines {

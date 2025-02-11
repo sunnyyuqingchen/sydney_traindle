@@ -6,7 +6,6 @@ function App() {
     <>
       <div className="container">
         <div className="title">🚂 Sydney Traindle 🚂</div>
-        
         <Game/>
       </div>
     </>
