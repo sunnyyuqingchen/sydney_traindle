@@ -86,7 +86,7 @@ const StationTable = ({ selectedStations, answer }) => {
               </td>
 
               <td
-                className={checkCorrect(station)}
+                className={trainNetwork[station]['dist'] === trainNetwork[answer]['dist'] ? 'correct' : 'incorrect'}
               >
                 <span>
                   {trainNetwork[station]['dist']}km
@@ -97,7 +97,7 @@ const StationTable = ({ selectedStations, answer }) => {
               </td>
 
               <td
-                className={checkCorrect(station)}
+                className={trainNetwork[station]['users'] === trainNetwork[answer]['users'] ? 'correct' : 'incorrect'}
               >
                 <span>
                   {trainNetwork[station]['users']}

@@ -23,7 +23,7 @@ const stationInput = ({ onStationSelect, suggestions, answer, onWin }) => {
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      if (input === '') {
+      if (input === '' || filteredSuggestions.length === 0) {
         return;
       }
       const selectedGuess = filteredSuggestions[activeSuggestionIndex];
