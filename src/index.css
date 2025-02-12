@@ -1,5 +1,10 @@
+@font-face {
+  font-family: 'Public Sans NSW';
+  src: url('ttf/PublicSans-Regular.ttf');
+}
+
 body {
-  background-color: #242424;
+  background-color: #ebece6;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
@@ -12,28 +17,42 @@ body {
 }
 
 .title {
-  color: white;
-  font-weight: bold;
-  font-size: 50px;
-  margin: auto;
+  font-family: 'Public Sans NSW';
+  color: #484647;
+  font-size: 2em;
   margin-top: 5vh;
+  margin-bottom: 3vh;
+  transform: scale(.9, 1);
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#t-logo {
+  width: 1em;
+  height: 1em;
+  padding-right: 1%;
 }
 
 .autocomplete {
-  padding-top: 5%;
+  padding-bottom: 5%;
   margin: auto;
   width: fit-content;
   position: relative;
 }
 
 input {
-  border: 1px solid transparent;
+  border: 2px solid #939598;
+  border-radius: 5px;
   background-color: #f1f1f1;
   padding: 10px;
   font-size: 16px;
   color: black;
   text-align: center;
-  width: 300px;
+  width: 20em;
 }
 
 .suggestions {
@@ -74,7 +93,7 @@ input {
 .no-suggestions {
   width: 100%;
   text-align: center;
-  color: white;
+  color: red;
   padding: 10px;
   position: absolute;
   padding: 0;
@@ -112,20 +131,20 @@ input {
   border-spacing: 3px 0px;
 }
 
-.station-table td {
-  padding: 10px 10px 7px 10px;
-  position: relative;
-  color: white;
-}
-
 .station-table th {
   position: relative;
   padding: 10px;
   font-weight: bold;
-  background-color: #6e6764;
-  color: #141313;
+  background-color: #f6891f;
+  color: #484647;
   border-radius: 10px 10px 0px 0px;
   height: 50px;
+}
+
+.station-table td {
+  padding: 10px 10px 7px 10px;
+  position: relative;
+  color: white;
 }
 
 .station-table .row-even {
