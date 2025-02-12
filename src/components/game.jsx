@@ -4,36 +4,51 @@ import StationTable from './stationTable';
 import trainNetwork from "../helper/TrainNetwork";
 
 function Game() {
+  // states for stations that the user entered, the correct station and keep track if user has won
   const [selectedStations, setSelectedStations] = useState([]);
   const [answer, setAnswer] = useState(null);
   const [hasWon, setHasWon] = React.useState(false);
 
+  // collect the station names from graph
   const stations = Object.keys(trainNetwork);
 
+  // effect used to load or initialise the game state from local storage
   React.useEffect(() => {
     const storedDate = localStorage.getItem('gameDate');
     const storedGuesses = JSON.parse(localStorage.getItem('selectedStations')) || [];
     const storedHasWon = JSON.parse(localStorage.getItem('won')) || false;
+
+    // get current date
     const today = new Date().toISOString().split('T')[0];;
+
+    /* mock date for testing */
     //const mockDate = new Date('2025-01-05');
     //const today = mockDate.toISOString().split('T')[0];
 
+    // if locale storage has same date as today we restore previous game state
     if (storedDate === today) {
       setAnswer(localStorage.getItem('answer'));
       setSelectedStations(storedGuesses);
       setHasWon(storedHasWon);
+
+    // if new day, get new answer and reset game state
     } else {
       const newAnswer = stations[Math.floor(Math.random() * stations.length)];
       setAnswer(newAnswer);
+
+      // store new game state
       localStorage.setItem('gameDate', today);
       localStorage.setItem('answer', newAnswer);
       localStorage.setItem('selectedStations', JSON.stringify([]));
       localStorage.setItem('won', false);
+
+      // ensuring local states are correct
       setHasWon(false);
       setSelectedStations([]);
     }
   }, []);
 
+  // function to update the selected station state with the user's new guess
   const handleStationSelect = (station) => {
     setSelectedStations((prev) => {
       const updatedStations = [station, ...prev];
@@ -42,6 +57,7 @@ function Game() {
     });
   };
 
+  // if user wins we update states
   const handleWin = () => {
     setHasWon(true);
     localStorage.setItem('won', true);
