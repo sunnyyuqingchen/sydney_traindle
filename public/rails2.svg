@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Rails_2" data-name="Rails 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-1, .cls-3 {
+        stroke: #cec8c0;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-4 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-3 {
+        fill: #ebece6;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" width="500" height="500"/>
+    </clipPath>
+  </defs>
+  <g class="cls-4">
+    <line class="cls-1" x1="474" y1="75.54" x2="474" y2="53.28"/>
+    <polyline class="cls-1" points="500 380.67 477.67 380.67 394 297 265 297 218.5 250.5 218.5 158.5 270 107"/>
+    <polyline class="cls-1" points="470.5 503.5 492 482 492 444.5 384.25 336.75 150.5 336.75 76.12 411.12"/>
+    <path class="cls-1" d="M474,53.28v22.26l-31.34,31.34-36.99.12H138.85s-40.85-39-48.3-47.56"/>
+    <path class="cls-1" d="M90.56,127.5c13.94,15,64.23,64.23,64.23,64.23v90.27l54.74,54.74"/>
+    <polyline class="cls-1" points="502.25 125.25 446.25 181.25 446.25 232.12 381.07 297.3"/>
+    <polyline class="cls-1" points="0 127.5 19.5 127.5 52 160"/>
+    <line class="cls-1" x1="500" y1="282" x2="396.37" y2="282"/>
+    <polyline class="cls-1" points="250 336.74 293.8 380.54 293.8 415.15 233.97 474.97 146.5 474.97"/>
+    <line class="cls-1" x1="182.5" y1="429.5" x2="279.44" y2="429.5"/>
+    <polyline class="cls-1" points="446.25 181.25 355.89 181.25 329.57 207.57"/>
+    <ellipse class="cls-3" cx="329.89" cy="207.67" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="283.89" cy="297.67" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="293.89" cy="396.67" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="182.89" cy="429" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="149.89" cy="475" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="75.89" cy="413" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="154.56" cy="227.04" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="152.89" cy="106.56" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="51.89" cy="159.56" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="443.15" cy="396.04" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="367.44" cy="106.59" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="463.89" cy="281.7" rx="5.02" ry="5.01"/>
+    <polyline class="cls-1" points="0 27 58.11 27 90.56 59.44 90.56 244 52.22 282.33 0 282.33"/>
+    <line class="cls-1" x1="503.5" y1="23.5" x2="473.72" y2="53.28"/>
+    <line class="cls-1" x1="474" y1="53.28" x2="474"/>
+    <polyline class="cls-1" points="0 380 25.52 380 66.26 339.26"/>
+    <ellipse class="cls-3" cx="65.5" cy="340" rx="5.02" ry="5.01"/>
+  </g>
+</svg>
