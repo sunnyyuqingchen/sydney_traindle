@@ -1,6 +1,6 @@
 # Sydney Traindle
 
-Sydney Traindle is a web based game based on guessing games such as wordle. The main premise of Sydney Trained is that the user must find the correct station out of all of the stations in the Sydney railway network using hints provided after each guess.
+Sydney Traindle is a web based game based on guessing games such as wordle. The main premise of Sydney Traindle is that the user must find the correct station out of all of the stations in the Sydney railway network using hints provided after each guess.
   
 ---
 
@@ -9,7 +9,7 @@ Sydney Traindle is a web based game based on guessing games such as wordle. The 
 ### [Hemang Punyane](https://github.com/hempunyane)
 *Project Management*
 
-### [William Orgill](https://github.com/username)
+### [William Orgill](https://github.com/william-orgill)
 *Backend Development*
 
 ### [Sunny Chen](https://github.com/sunnyyuqingchen)
