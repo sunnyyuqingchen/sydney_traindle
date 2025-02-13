@@ -69,7 +69,7 @@ const StationTable = ({ selectedStations, answer }) => {
             <th style={{ width: "170px" }}>Station</th>
             <th style={{ width: "100px" }}>Lines</th>
             <th style={{ width: "170px" }}>Rail distance from Central Station</th>
-            <th style={{ width: "120px" }}>Average monthly users</th>
+            <th style={{ width: "120px" }}>Average daily users</th>
             <th style={{ width: "70px" }}>Stations away</th>
           </tr>
         </thead>
@@ -96,7 +96,7 @@ const StationTable = ({ selectedStations, answer }) => {
 
             {/* Display average monthly users with correctness indicator */}
             <td className={trainNetwork[station]['users'] === trainNetwork[answer]['users'] ? 'correct' : 'incorrect'}>
-              <span>{trainNetwork[station]['users']}</span>
+              <span>{Math.floor(trainNetwork[station]['users']/30)}</span>
               <span className="arrow">{getArrow(station, 'users')}</span>
             </td>
 
