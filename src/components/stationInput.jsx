@@ -88,7 +88,7 @@ const stationInput = ({ onStationSelect, suggestions, answer, onWin }) => {
     setTimeout(() => {
       setShowSuggestions(false);
       setInput('');
-    }, 100);
+    }, 150);
   };
 
   // we use teh reference to scroll up or down a list when a arrow key is used when the next staiton is out of view
