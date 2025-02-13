@@ -19,11 +19,11 @@ function Game() {
     const storedHasWon = JSON.parse(localStorage.getItem('won')) || false;
 
     // get current date
-    const today = new Date().toISOString().split('T')[0];;
+    //const today = new Date().toISOString().split('T')[0];;
 
     /* mock date for testing */
-    //const mockDate = new Date('2025-01-05');
-    //const today = mockDate.toISOString().split('T')[0];
+    const mockDate = new Date('2025-01-05');
+    const today = mockDate.toISOString().split('T')[0];
 
     // if locale storage has same date as today we restore previous game state
     if (storedDate === today) {

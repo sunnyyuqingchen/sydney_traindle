@@ -1,13 +1,21 @@
 import React from 'react';
 
-//make footer take props of image+link pairs and render them in a small div
-function Footer(props) {
-    return (
-        <div className="footer">
 
-        </div>
-    );
-};
+class Icon extends React.Component {
+    render(){
+        return <a href={this.props.link}>
+            <img src={this.props.logo}  className='footer-logo'/> 
+        </a>
+    }
+}
 
+class Footer extends React.Component {
+    render() {
+      return <div className="footer">
+        <Icon logo='github-logo.svg' link='https://github.com/hempunyane/hempunyane.github.io'/>
+        <Icon logo='sorryvol-traindle.svg' link='https://github.com/sorryvol'/>
+      </div>;
+    }
+  }
 
 export default Footer;

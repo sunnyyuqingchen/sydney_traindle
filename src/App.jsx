@@ -1,4 +1,6 @@
 import Game from './components/game'
+import Footer from './components/footer'
+import Background from './components/background'
 
 function App() {
 
@@ -7,6 +9,8 @@ function App() {
       <div className="container">
         <div className="title"><h1><img id='t-logo' src="TfNSW_T.svg"></img>Sydney traindle</h1></div>
         <Game/>
+        <Footer/>
+        <Background/>
       </div>
     </>
   )

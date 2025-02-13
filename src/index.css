@@ -169,7 +169,7 @@ input {
 }
 
 .station-table .correct {
-  background-color:#44c555;
+  background-color:#45e45a;
   color: #f1e9e9;
   font-weight: 700;
 }
@@ -181,7 +181,7 @@ input {
 }
 
 .win-message {
-  background-color: #44c555;
+  background-color: #45e45a;
   color: white;
   padding: 10px;
   border-radius: 5px;
@@ -192,4 +192,23 @@ input {
 
 .lines {
   margin: 4px;
+}
+
+.footer {
+  position: absolute;
+  width: 99.18%;
+  top: 0.75vw;
+  height: 2.5vw;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.footer-logo{
+  position: relative;
+  width: 2.5vw;
+  height: 2.5vw;
+  border-radius: 10vw;
+  margin-left: 0.75vw;
+  opacity: 25%;
 }
