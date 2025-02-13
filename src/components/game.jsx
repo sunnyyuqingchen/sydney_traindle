@@ -51,6 +51,10 @@ function Game() {
   // function to update the selected station state with the user's new guess
   const handleStationSelect = (station) => {
     setSelectedStations((prev) => {
+      // we dont add if it already exists
+      if (prev.includes(station)) {
+        return prev;
+      }
       const updatedStations = [station, ...prev];
       localStorage.setItem('selectedStations', JSON.stringify(updatedStations));
       return updatedStations;
