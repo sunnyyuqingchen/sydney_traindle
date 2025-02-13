@@ -82,7 +82,7 @@ input {
 }
 
 .suggestion-active {
-  background-color: #008f68;
+  background-color: #fcb667;
   color: white;
 }
 
@@ -93,7 +93,7 @@ input {
 .no-suggestions {
   width: 100%;
   text-align: center;
-  color: red;
+  color: #fa8f94;
   padding: 10px;
   position: absolute;
   padding: 0;
@@ -163,7 +163,7 @@ input {
 }
 
 .station-table .incorrect {
-  background-color:#d79093;
+  background-color:#fa8f94;
   color: #484647;
 }
 
@@ -205,11 +205,26 @@ input {
   align-items: center;
 }
 
-.footer-logo{
+.footer-logo {
   position: relative;
   width: 2.5vw;
   height: 2.5vw;
   border-radius: 10vw;
   margin-left: 0.75vw;
   opacity: 25%;
+}
+
+.background-container {
+  position: fixed;
+  top: -5px;
+  left: -5px;
+  z-index: -1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.background {
+  width: 25.065vw;
+  height: 25.065vw;
+  position: relative;
 }
