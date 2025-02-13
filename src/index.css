@@ -5,7 +5,7 @@
 
 body {
   background-color: #ebece6;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Public Sans NSW;
 }
 
 .container {
@@ -123,7 +123,7 @@ input {
   margin: 20px auto;
   width: 80%;
   border-collapse: collapse;
-  font-size: 16px;
+  font-size: 1.5em;
 }
 
 .station-table table {
@@ -133,18 +133,18 @@ input {
 
 .station-table th {
   position: relative;
-  padding: 10px;
-  font-weight: bold;
+  padding: 1%;
   background-color: #f6891f;
-  color: #484647;
-  border-radius: 10px 10px 0px 0px;
+  color: #ebece6;
+  border-radius: 15px 15px 0px 0px;
   height: 50px;
 }
 
 .station-table td {
   padding: 10px 10px 7px 10px;
   position: relative;
-  color: white;
+  color: #484647;
+  font-weight: 400;
 }
 
 .station-table .row-even {
@@ -163,25 +163,26 @@ input {
 }
 
 .station-table .incorrect {
-  background-color:#df666a;
-  color: #f1e9e9;
-  font-weight: 700;
+  background-color:#d79093;
+  color: #484647;
+}
+
+.station-table .default {
+  background-color: rgb(183, 183, 183);
 }
 
 .station-table .correct {
-  background-color:#45e45a;
-  color: #f1e9e9;
-  font-weight: 700;
+  background-color:#8cdb96;
+  color: #484647;
 }
 
 .station-table .partial {
-  background-color:#f1ca5c;
-  color: #f1e9e9;
-  font-weight: 700;
+  background-color:#ebd489;
+  color: #484647;
 }
 
 .win-message {
-  background-color: #45e45a;
+  background-color: #8cdb96;
   color: white;
   padding: 10px;
   border-radius: 5px;

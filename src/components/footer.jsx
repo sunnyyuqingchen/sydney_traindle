@@ -13,7 +13,6 @@ class Footer extends React.Component {
     render() {
       return <div className="footer">
         <Icon logo='github-logo.svg' link='https://github.com/hempunyane/hempunyane.github.io'/>
-        <Icon logo='sorryvol-traindle.svg' link='https://github.com/sorryvol'/>
       </div>;
     }
   }

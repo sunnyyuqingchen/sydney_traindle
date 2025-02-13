@@ -68,7 +68,7 @@ const StationTable = ({ selectedStations, answer }) => {
           <tr>
             <th style={{ width: "170px" }}>Station</th>
             <th style={{ width: "100px" }}>Lines</th>
-            <th style={{ width: "170px" }}>Rail distance from Central Station</th>
+            <th style={{ width: "170px" }}>Rail distance from Central</th>
             <th style={{ width: "120px" }}>Average daily users</th>
             <th style={{ width: "70px" }}>Stations away</th>
           </tr>
@@ -89,19 +89,19 @@ const StationTable = ({ selectedStations, answer }) => {
             </td>
 
             {/* Display rail distance from central station with correctness indicator */}
-            <td className={trainNetwork[station]['dist'] === trainNetwork[answer]['dist'] ? 'correct' : 'incorrect'}>
+            <td className={trainNetwork[station]['dist'] === trainNetwork[answer]['dist'] ? 'correct' : 'default'}>
               <span>{trainNetwork[station]['dist']}km</span>
               <span className="arrow">{getArrow(station, 'dist')}</span>
             </td>
 
             {/* Display average monthly users with correctness indicator */}
-            <td className={trainNetwork[station]['users'] === trainNetwork[answer]['users'] ? 'correct' : 'incorrect'}>
+            <td className={trainNetwork[station]['users'] === trainNetwork[answer]['users'] ? 'correct' : 'default'}>
               <span>{Math.floor(trainNetwork[station]['users']/30)}</span>
               <span className="arrow">{getArrow(station, 'users')}</span>
             </td>
 
             {/* Display number of stations away from the correct answer */}
-            <td className={checkCorrect(station)}>
+            <td className={station === answer ? 'correct' : 'default'}>
               {calculateDistance(station, answer)}
             </td>
           </tr>
