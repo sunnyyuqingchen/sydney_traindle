@@ -19,7 +19,11 @@ function Game() {
     const storedHasWon = JSON.parse(localStorage.getItem('won')) || false;
 
     // get current date
-    const today = new Date().toISOString().split('T')[0];;
+    const today = new Date().toISOString().split('T')[0];
+
+    // https://stackoverflow.com/questions/521295/seeding-the-random-number-generator-in-javascript
+    // used to make unique seed for random answer
+    const day = Math.floor((new Date() - new Date(2000, 0, 1)) / 86400000);
 
     /* mock date for testing */
     //const mockDate = new Date('2025-01-05');
@@ -33,7 +37,8 @@ function Game() {
 
     // if new day, get new answer and reset game state
     } else {
-      const newAnswer = stations[Math.floor(Math.random() * stations.length)];
+      //const newAnswer = stations[Math.floor(Math.random() * stations.length)];
+      const newAnswer = stations[Math.floor(seededRandom(day) * stations.length)];
       setAnswer(newAnswer);
 
       // store new game state
@@ -47,6 +52,12 @@ function Game() {
       setSelectedStations([]);
     }
   }, []);
+
+  // https://stackoverflow.com/questions/521295/seeding-the-random-number-generator-in-javascript
+  const seededRandom = (seed) => {
+    const x = Math.sin(seed) * 10000;
+    return x - Math.floor(x);
+  };
 
   // function to update the selected station state with the user's new guess
   const handleStationSelect = (station) => {
