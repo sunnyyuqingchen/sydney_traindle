@@ -37,8 +37,7 @@ class Background extends React.Component {
         let width = document.documentElement.clientWidth;
         let height = document.documentElement.clientHeight;
         let images = []
-        //creates enough background images to tile on any height background without scaling image
-        for (let i = 0; i < width*5; i += width*0.20){
+        for (let i = 0;i < Math.ceil(height/(width*0.2))*5; i++){
             if (Math.random() > 0.5){
                 images.push(<img src='/Rails/rails.svg' className="background" key={"bg-tile-"+i}></img>);
             }

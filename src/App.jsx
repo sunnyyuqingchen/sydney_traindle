@@ -1,5 +1,5 @@
 import Game from './components/game'
-import Header from './components/header'
+import Header from './components/pageHeader'
 import Background from './components/background'
 
 function App() {
