@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Train" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #606060;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-miterlimit: 10;
+        stroke-width: .5px;
+      }
+
+      .cls-1, .cls-3 {
+        stroke: #3a3a3a;
+      }
+
+      .cls-2 {
+        fill: #ef3f3f;
+        stroke: #ef3f3f;
+      }
+
+      .cls-3 {
+        fill: #3a3a3a;
+      }
+
+      .cls-4 {
+        fill: #bc3737;
+        stroke: #bc3737;
+      }
+    </style>
+  </defs>
+  <rect id="Seat_Back" data-name="Seat Back" class="cls-4" x="18.5" y="16.5" width="8" height="6" rx="1" ry="1"/>
+  <rect id="Seat" class="cls-4" x="25.5" y="13.5" width="12" height="9" rx="1" ry="1"/>
+  <rect id="Hitch" class="cls-3" x="14.5" y="40" width="6" height="3" rx="1" ry="1"/>
+  <rect id="Head-Toe_Con" data-name="Head-Toe Con" class="cls-3" x="71.5" y="34" width="3" height="2"/>
+  <rect id="Ram" class="cls-2" x="70.5" y="36" width="16.5" height="7" rx="1" ry="1"/>
+  <rect id="Head" class="cls-3" x="70.5" y="23.5" width="13" height="10.5" rx="1" ry="1"/>
+  <rect class="cls-3" x="61.5" y="17.5" width="2" height="4"/>
+  <rect id="Exhaust_Tip" data-name="Exhaust Tip" class="cls-3" x="61" y="15.5" width="3" height="2" rx=".69" ry=".69"/>
+  <rect id="Body" class="cls-2" x="18" y="21" width="54" height="22" rx="1" ry="1"/>
+  <rect id="Body_Line" data-name="Body Line" class="cls-3" x="18" y="34" width="54" height="9" rx="1" ry="1"/>
+  <circle id="Wheel_1" data-name="Wheel 1" class="cls-1" cx="30" cy="43" r="6.5"/>
+  <circle id="Wheel_2" data-name="Wheel 2" class="cls-1" cx="50" cy="43" r="6.5"/>
+  <circle id="Wheel_3" data-name="Wheel 3" class="cls-1" cx="70" cy="43" r="6.5"/>
+</svg>

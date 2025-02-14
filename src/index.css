@@ -138,6 +138,7 @@ input {
   color: #ebece6;
   border-radius: 15px 15px 0px 0px;
   height: 50px;
+  z-index: 1;
 }
 
 .station-table td {
@@ -232,4 +233,12 @@ input {
   height: 20vw;
   position: relative;
   opacity: 50%;
+  z-index: -2;
+}
+
+.train{
+  position: fixed;
+  width: 2.5vw;
+  height: 2.5vw;
+  z-index: -1;
 }

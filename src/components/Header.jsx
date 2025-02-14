@@ -2,9 +2,9 @@ import React from 'react';
 
 
 class Icon extends React.Component {
-    render(){
+  render(){
         return <a href={this.props.link} style={{width:'2.5vw', height:'2.5vw'}}>
-            <object type="image/svg+xml" data="github-logo.svg" className='header-logo'/> 
+            <img src="/Logos/github-logo.svg" className='header-logo'/> 
         </a>
     }
 }

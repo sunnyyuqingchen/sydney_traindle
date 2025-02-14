@@ -1,5 +1,5 @@
 import Game from './components/game'
-import Header from './components/Header'
+import Header from './components/header'
 import Background from './components/background'
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <div className="container">
         <div className="title">
           <h1>
-            <img id='t-logo' src="TfNSW_T.svg"></img> Sydney Traindle
+            <img id='t-logo' src="/Logos/TfNSW_T.svg"></img> Sydney Traindle
           </h1>
         </div>
         <Header/>

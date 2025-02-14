@@ -1,4 +1,5 @@
 import React from 'react';
+import {motion} from 'framer-motion';
 import trainNetwork from "../helper/TrainNetwork";
 
 const StationTable = ({ selectedStations, answer }) => {
@@ -61,6 +62,16 @@ const StationTable = ({ selectedStations, answer }) => {
     return station === answer ? 'correct' : 'incorrect'
   }
 
+  const guessAnimation = {
+    animate: {y: 0},
+    initial: {y: document.documentElement.clientHeight},
+    transition: {
+      type: 'spring',
+      stiffness: 65,
+      damping: 15
+    }
+  }
+
   return (
     <div className="station-table">
       <table>
@@ -77,33 +88,35 @@ const StationTable = ({ selectedStations, answer }) => {
           {selectedStations.map((station, index) => (
             <tr key={index}>
             {/* Display station name with correct/incorrect highlighting */}
-            <td className={checkCorrect(station)}>{station}</td>
+            <motion.td {...guessAnimation} className={checkCorrect(station)}>
+              {station}
+            </motion.td>
 
             {/* Display train lines with correctness status */}
-            <td className={checkLines(station)}>
+            <motion.td {...guessAnimation} className={checkLines(station)}>
               {trainNetwork[station]['lines'].map((line, index) => (
                 <span className='lines'>
-                  <img key={index} src={line+".svg"} width="30px" alt={line}/>
+                  <img key={index} src={"/Trainlines/"+line+".svg"} width="30px" alt={line}/>
                 </span>
               ))}
-            </td>
+            </motion.td>
 
             {/* Display rail distance from central station with correctness indicator */}
-            <td className={trainNetwork[station]['dist'] === trainNetwork[answer]['dist'] ? 'correct' : 'default'}>
+            <motion.td {...guessAnimation} className={trainNetwork[station]['dist'] === trainNetwork[answer]['dist'] ? 'correct' : 'default'}>
               <span>{trainNetwork[station]['dist']}km</span>
               <span className="arrow">{getArrow(station, 'dist')}</span>
-            </td>
+            </motion.td>
 
             {/* Display average monthly users with correctness indicator */}
-            <td className={trainNetwork[station]['users'] === trainNetwork[answer]['users'] ? 'correct' : 'default'}>
+            <motion.td {...guessAnimation} className={trainNetwork[station]['users'] === trainNetwork[answer]['users'] ? 'correct' : 'default'}>
               <span>{Math.floor(trainNetwork[station]['users']/30)}</span>
               <span className="arrow">{getArrow(station, 'users')}</span>
-            </td>
+            </motion.td>
 
             {/* Display number of stations away from the correct answer */}
-            <td className={station === answer ? 'correct' : 'default'}>
+            <motion.td {...guessAnimation} className={station === answer ? 'correct' : 'default'}>
               {calculateDistance(station, answer)}
-            </td>
+            </motion.td>
           </tr>
           ))}
         </tbody>
