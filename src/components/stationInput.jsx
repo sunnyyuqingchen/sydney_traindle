@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Hint from './hint.jsx'
 const stationInput = ({ onStationSelect, suggestions, answer, onWin }) => {
   // states for current input, suggestions based on input, the highligghted suggestion and whether or not to show suggestions
   const [input, setInput] = React.useState('');
@@ -131,19 +131,24 @@ const stationInput = ({ onStationSelect, suggestions, answer, onWin }) => {
   };
 
   return (
-    <div className="autocomplete">
-      <input
-        id="myInput"
-        type="text"
-        name="stationGuess"
-        placeholder="Station"
-        value={input}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
-        onBlur={handleBlur}
-        autoComplete="off"
-      />
-      {renderSuggestions()}
+    <div>
+      <div className='search-container'>
+        <div className="autocomplete">
+          <input
+              id="myInput"
+              type="text"
+              name="stationGuess"
+              placeholder="Station"
+              value={input}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+              onBlur={handleBlur}
+              autoComplete="off"
+            />
+          {renderSuggestions()}
+        </div>
+        <Hint/>
+      </div>
     </div>
   );
 };
