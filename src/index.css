@@ -131,6 +131,10 @@ input {
   border-spacing: 3px 0px;
 }
 
+.station-table table tbody tr:last-child td{
+  border-radius: 0px 0px 15px 15px;
+}
+
 .station-table th {
   position: relative;
   padding: 1%;
