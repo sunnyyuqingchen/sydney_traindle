@@ -81,7 +81,7 @@ input {
   left: -6vw;
   width: 40vw;
   height: 70vh;
-  z-index: 1;
+  z-index: 5;
 }
 
 #map {
