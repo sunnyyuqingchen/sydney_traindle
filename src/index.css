@@ -44,15 +44,49 @@ h1 {
   position: relative;
 }
 
+.search-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 1%;
+  margin: auto;
+  width: fit-content;
+  position: relative;
+}
+
 input {
   border: 2px solid #939598;
   border-radius: 5px;
   background-color: #f1f1f1;
-  padding: 10px;
   font-size: 16px;
   color: black;
   text-align: center;
-  width: 20em;
+  width: 25vw;
+  height: 5vh;
+  padding: 0;
+}
+
+#hintButton {
+  background-color: rgb(183, 183, 183);
+  width: 3vw;
+  height: 5.3vh;
+  border-color: rgb(172, 172, 172);
+  border-radius: 5px;
+  min-width: 50px;
+  margin-left: 30%;
+}
+
+.map-container {
+  background-color: #8cdb96;
+  position: absolute;
+  left: -6vw;
+  width: 40vw;
+  height: 70vh;
+  z-index: 1;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
 }
 
 .suggestions {
