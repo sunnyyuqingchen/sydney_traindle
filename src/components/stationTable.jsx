@@ -99,13 +99,26 @@ const StationTable = ({ selectedStations, answer }) => {
     return 'incorrect';
   }
 
+  const getStationRanges = (station) => {
+    let ranges = [
+      "10-19",
+      "20-29",
+      "30-39",
+      "40-49",
+      "50-59"
+    ]
+    let distRange = Math.floor(calculateDistance(station, answer)/10);
+    if (distRange == 0) {return calculateDistance(station, answer)}
+    return ranges[distRange];
+  }
+
   const guessAnimation = {
     animate: {x: 0},
     initial: {x: document.documentElement.clientWidth},
     transition: {
       type: 'spring',
       stiffness: 70,
-      damping: 12.5
+      damping: 15
     }
   }
 
@@ -152,10 +165,7 @@ const StationTable = ({ selectedStations, answer }) => {
 
             {/* Display number of stations away from the correct answer */}
             <td className={checkCorrectStationsAway(station)}>
-              {
-                (calculateDistance(station, answer) > maxPartialDistance) || calculateDistance(station, answer) == 0?
-                calculateDistance(station, answer) : '?'
-               }
+              {getStationRanges(station)}
             </td>
           </motion.tr>
           ))}

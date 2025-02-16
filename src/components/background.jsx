@@ -17,6 +17,23 @@ class Train extends React.Component {
         }
     }
     
+    componentDidMount() {
+        this.interval = setInterval(() => {
+          this.setState((prevState) => {
+            // Change rotation between 2 and 6
+            let newRotation = prevState.rotation === 6 ? 2 : 6;
+            //once all svgs are made use this:
+            // let newRotation = prevState.rotation < 7 ? prevState.rotation++ : 0;
+            return { rotation: newRotation };
+          });
+        }, 2500); // 2.5 seconds
+      }
+    
+      // Clear interval when the component unmounts
+      componentWillUnmount() {
+        clearInterval(this.interval);
+      }
+
     //returns: xPos, yPos, rotation
     getStartingPos(){
         //select a random bg tile, select 2 nodes, and pick a random point between those two nodes, get required image of train based on nodes and return data
@@ -24,7 +41,7 @@ class Train extends React.Component {
     }
 
     getTrainImage(){
-        return <img src={"/Trains/"+this.state.color+"/Train"+this.state.rotation+".svg"}></img>
+        return <img src={"/Trains/"+this.state.color+"/"+this.state.rotation+".svg"}></img>
     }
 
     render(){
