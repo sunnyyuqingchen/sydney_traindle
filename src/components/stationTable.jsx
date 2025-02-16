@@ -62,6 +62,43 @@ const StationTable = ({ selectedStations, answer }) => {
     return station === answer ? 'correct' : 'incorrect'
   }
 
+  // used to determione if guessed station is the same as answer, also checks if station is close enough to count as partially correct
+  const checkCorrectRailDist = (station) => {
+    let partialDist = 5; //distance in km a station needs to be to the correct answer to show as partially correct
+    if (station === answer){
+      return 'correct';
+    }
+    if (Math.abs(trainNetwork[station]['dist']-trainNetwork[answer]['dist']) <= partialDist){
+      return 'partial';
+    }
+    return 'incorrect';
+  }
+
+  // used to determione if guessed station is the same as answer, also checks if enough daily user to count as partially correct
+  const checkCorrectDailyUsers = (station) => {
+    let userPercentage = 0.33; //percentage of users of answer station guess needs to be within to show as partially correct
+    if (station === answer){
+      return 'correct';
+    }
+    if (Math.abs(trainNetwork[station]['users']-trainNetwork[answer]['users']) <= (userPercentage*trainNetwork[answer]['users'])){
+      return 'partial';
+    }
+    return 'incorrect';
+  }
+  
+  //defined outside of function to be used in table
+  let maxPartialDistance = 9 //maximum number of stations a station can be away from the corect guess and still be counted as partiall correct
+  // used to determione if guessed station is the same as answer, also checks if station is close enough to count as partially correct
+  const checkCorrectStationsAway = (station) => {
+    if (station === answer){
+      return 'correct';
+    }
+    if (calculateDistance(station, answer) <= maxPartialDistance){
+      return 'partial';
+    }
+    return 'incorrect';
+  }
+
   const guessAnimation = {
     animate: {x: 0},
     initial: {x: document.documentElement.clientWidth},
@@ -102,20 +139,23 @@ const StationTable = ({ selectedStations, answer }) => {
             </td>
 
             {/* Display rail distance from central station with correctness indicator */}
-            <td className={trainNetwork[station]['dist'] === trainNetwork[answer]['dist'] ? 'correct' : 'default'}>
+            <td className={checkCorrectRailDist(station)}>
               <span>{trainNetwork[station]['dist']}km</span>
               <span className="arrow">{getArrow(station, 'dist')}</span>
             </td>
 
-            {/* Display average monthly users with correctness indicator */}
-            <td className={trainNetwork[station]['users'] === trainNetwork[answer]['users'] ? 'correct' : 'default'}>
+            {/* Display average daily users with correctness indicator */}
+            <td className={checkCorrectDailyUsers(station)}>
               <span>{Math.floor(trainNetwork[station]['users']/30)}</span>
               <span className="arrow">{getArrow(station, 'users')}</span>
             </td>
 
             {/* Display number of stations away from the correct answer */}
-            <td className={station === answer ? 'correct' : 'default'}>
-              {calculateDistance(station, answer)}
+            <td className={checkCorrectStationsAway(station)}>
+              {
+                (calculateDistance(station, answer) > maxPartialDistance) || calculateDistance(station, answer) == 0?
+                calculateDistance(station, answer) : '?'
+               }
             </td>
           </motion.tr>
           ))}
