@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Train" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1e1e1e;
+        stroke: #1e1e1e;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke-miterlimit: 10;
+        stroke-width: .5px;
+      }
+
+      .cls-2 {
+        fill: #ccaa3e;
+        stroke: #ccaa3e;
+      }
+
+      .cls-3 {
+        fill: #606060;
+      }
+
+      .cls-3, .cls-4 {
+        stroke: #3a3a3a;
+      }
+
+      .cls-4 {
+        fill: #3a3a3a;
+      }
+
+      .cls-5 {
+        fill: #a88422;
+        stroke: #a88422;
+      }
+
+      .cls-6 {
+        fill: #f7da31;
+        stroke: #f7da31;
+      }
+    </style>
+  </defs>
+  <rect id="Shadow" class="cls-5" x="18.5" y="14.75" width="8" height="6" rx="1" ry="1"/>
+  <rect id="Seat_Shadow" data-name="Seat Shadow" class="cls-5" x="25.5" y="11.75" width="12" height="9" rx="1" ry="1"/>
+  <rect id="Ram_Shadow" data-name="Ram Shadow" class="cls-2" x="70.5" y="34.25" width="16.5" height="7" rx="1" ry="1"/>
+  <rect id="Head_Shadow" data-name="Head Shadow" class="cls-1" x="70.5" y="21.75" width="13" height="10.5" rx="1" ry="1"/>
+  <rect id="Exhaust_Tip_Shadow" data-name="Exhaust Tip Shadow" class="cls-1" x="61" y="14.25" width="3" height="2.25" rx=".69" ry=".69"/>
+  <rect id="Body_Shadow" data-name="Body Shadow" class="cls-2" x="16.5" y="19.25" width="54" height="22" rx="1" ry="1"/>
+  <rect id="Hitch_Shadow" data-name="Hitch Shadow" class="cls-1" x="14.5" y="38.25" width="6" height="3.25" rx="1" ry="1"/>
+  <rect id="Seat_Back" data-name="Seat Back" class="cls-2" x="18.5" y="16.5" width="8" height="6" rx="1" ry="1"/>
+  <rect id="Seat" class="cls-2" x="25.5" y="13.5" width="12" height="9" rx="1" ry="1"/>
+  <rect id="Hitch" class="cls-4" x="14.5" y="40" width="6" height="3" rx="1" ry="1"/>
+  <rect id="Head-Toe_Con" data-name="Head-Toe Con" class="cls-4" x="71" y="34" width="3" height=".5"/>
+  <rect id="Ram" class="cls-6" x="70.5" y="36" width="16.5" height="7" rx="1" ry="1"/>
+  <rect id="Head" class="cls-4" x="70.5" y="23.5" width="13" height="10.5" rx="1" ry="1"/>
+  <rect class="cls-4" x="61.5" y="17.5" width="2" height="2"/>
+  <rect id="Exhaust_Tip" data-name="Exhaust Tip" class="cls-4" x="61" y="15.5" width="3" height="2" rx=".69" ry=".69"/>
+  <path id="Body" class="cls-6" d="M17.5,21h52c.55,0,1,.45,1,1v13H16.5v-13c0-.55.45-1,1-1Z"/>
+  <rect id="Body_Line" data-name="Body Line" class="cls-4" x="16.5" y="34" width="54" height="9" rx="1" ry="1"/>
+  <circle id="Wheel_1" data-name="Wheel 1" class="cls-3" cx="30" cy="43" r="6.5"/>
+  <circle id="Wheel_2" data-name="Wheel 2" class="cls-3" cx="50" cy="43" r="6.5"/>
+  <path id="Wheel_3" data-name="Wheel 3" class="cls-3" d="M76.5,43c0-3.59-2.91-6.5-6.5-6.5s-6.5,2.91-6.5,6.5,2.91,6.5,6.5,6.5,6.5-2.91,6.5-6.5Z"/>
+</svg>

@@ -7,8 +7,7 @@ class Train extends React.Component {
         let positions = this.getStartingPos();
 
         this.state = {
-            //color: Math.floor(Math.random() * 3), //int from 0-2 for each train colour (red, blue, yellow)
-            color: 0, //testing purposes: remove this line and uncomment above
+            color: Math.floor(Math.random() * 3), //get random color from 0-2
             posX: positions[0],
             posY: positions[1],
             rotation: positions[2], //int from 0-7 for each 45deg angle increment clockwise starting at 12 oclock
@@ -21,12 +20,12 @@ class Train extends React.Component {
         this.interval = setInterval(() => {
           this.setState((prevState) => {
             // Change rotation between 2 and 6
-            let newRotation = prevState.rotation === 6 ? 2 : 6;
+            //let newRotation = prevState.rotation === 6 ? 2 : 6;
             //once all svgs are made use this:
-            // let newRotation = prevState.rotation < 7 ? prevState.rotation++ : 0;
+            let newRotation = prevState.rotation < 7 ? prevState.rotation+1 : 0;
             return { rotation: newRotation };
           });
-        }, 2500); // 2.5 seconds
+        }, 250); // 2.5 seconds
       }
     
       // Clear interval when the component unmounts
@@ -37,7 +36,7 @@ class Train extends React.Component {
     //returns: xPos, yPos, rotation
     getStartingPos(){
         //select a random bg tile, select 2 nodes, and pick a random point between those two nodes, get required image of train based on nodes and return data
-        return [50,50,2]
+        return [Math.floor(Math.random() * 700), Math.floor(Math.random() * 350), 2]
     }
 
     getTrainImage(){
@@ -45,7 +44,7 @@ class Train extends React.Component {
     }
 
     render(){
-        return <motion.div className="train" animate={{x: 25, y:25}}>{this.getTrainImage()}</motion.div>;
+        return <motion.div className="train" animate={{x: this.state.posX, y: this.state.posY}}>{this.getTrainImage()}</motion.div>;
     }
 }
 
@@ -63,6 +62,10 @@ class Background extends React.Component {
             }
         }
         return <div className="background-container">
+            <Train></Train>
+            <Train></Train>
+            <Train></Train>
+            <Train></Train>
             <Train></Train>
             {images}
         </div>;

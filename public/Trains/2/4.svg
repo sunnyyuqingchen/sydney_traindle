@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1e1e1e;
+        stroke: #1e1e1e;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        fill: #1b289b;
+        stroke: #1b289b;
+      }
+
+      .cls-3 {
+        fill: #363edd;
+        stroke: #363edd;
+      }
+
+      .cls-4 {
+        fill: #111c5b;
+        stroke: #111c5b;
+      }
+
+      .cls-5, .cls-6 {
+        fill: #3a3a3a;
+        stroke: #3a3a3a;
+      }
+
+      .cls-6 {
+        stroke-width: .5px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" x="40" y="58.5" width="20" height="16.8" rx="1" ry="1"/>
+  <rect class="cls-3" x="40" y="6.8" width="20" height="35.2" rx="1" ry="1"/>
+  <rect class="cls-2" x="40" y="39.9" width="20" height="14.9" rx="1" ry="1"/>
+  <rect class="cls-3" x="40" y="52.9" width="20" height="14.9" rx="1" ry="1"/>
+  <path class="cls-1" d="M49,41.8h2c2.2,0,4,1.8,4,4v9.6h-10v-9.6c0-2.2,1.8-4,4-4Z"/>
+  <ellipse class="cls-5" cx="50" cy="55.4" rx="5" ry="5"/>
+  <rect class="cls-4" x="45" y="11.6" width="10" height="8.3" rx="1" ry="1"/>
+  <rect class="cls-2" x="45" y="17.8" width="10" height="5.5" rx="1" ry="1"/>
+  <path class="cls-6" d="M48.8,30.6h2.5v2.5c0,.5-.5,1-1,1h-.5c-.5,0-1-.5-1-1v-2.5h0Z"/>
+  <rect id="Exhaust_Tip" data-name="Exhaust Tip" class="cls-6" x="48.1" y="28.2" width="3.8" height="2.8" rx=".7" ry=".7"/>
+</svg>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1e1e1e;
+        stroke: #1e1e1e;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        fill: #ef3f3f;
+        stroke: #ef3f3f;
+      }
+
+      .cls-3 {
+        fill: #9b2929;
+        stroke: #9b2929;
+      }
+
+      .cls-4 {
+        stroke-width: .5px;
+      }
+
+      .cls-4, .cls-5 {
+        fill: #3a3a3a;
+        stroke: #3a3a3a;
+      }
+
+      .cls-6 {
+        fill: #bc3737;
+        stroke: #bc3737;
+      }
+    </style>
+  </defs>
+  <rect class="cls-6" x="40" y="6.75" width="20" height="11.75" rx="1" ry="1"/>
+  <ellipse class="cls-1" cx="50" cy="13.6" rx="5" ry="4.96"/>
+  <path class="cls-1" d="M45,13.6h10v9.64c0,2.21-1.79,4-4,4h-2c-2.21,0-4-1.79-4-4v-9.64h0Z"/>
+  <rect class="cls-2" x="40" y="17.5" width="20" height="57.75" rx="1" ry="1"/>
+  <rect class="cls-6" x="40" y="56.5" width="20" height="18.75" rx="1" ry="1"/>
+  <path class="cls-3" d="M54,40.5h-8c-.55,0-1,.45-1,1v9c0,.55.45,0,1,0h8c.55,0,1,.55,1,0v-9c0-.55-.45-1-1-1Z"/>
+  <rect class="cls-6" x="45" y="49.41" width="10" height="2" rx="1" ry="1"/>
+  <rect class="cls-6" x="45" y="44.5" width="10" height="2" rx="1" ry="1"/>
+  <rect id="Exhaust_Tip" data-name="Exhaust Tip" class="cls-4" x="48.12" y="18.91" width="3.75" height="2.76" rx=".69" ry=".69"/>
+  <path class="cls-4" d="M48.75,21.29h2.5v2.53c0,.55-.45,1-1,1h-.5c-.55,0-1-.45-1-1v-2.53h0Z"/>
+  <path id="Exhaust_Tip-2" data-name="Exhaust Tip" class="cls-5" d="M51.18,76.25h-2.36c-.38,0-.69-.18-.69-.56v-1.38c0-.38.31-.69.69-.69h2.36c.38,0,.69.31.69.69v1.38c0,.38-.31.56-.69.56Z"/>
+  <path id="Exhaust_Tip-3" data-name="Exhaust Tip" class="cls-1" d="M51.18,75.63h-2.36c-.38,0-.69-.18-.69-.56v-1.38c0-.38.31-.69.69-.69h2.36c.38,0,.69.31.69.69v1.38c0,.38-.31.56-.69.56Z"/>
+</svg>
