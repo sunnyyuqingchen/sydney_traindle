@@ -105,11 +105,12 @@ const StationTable = ({ selectedStations, answer }) => {
       "20-29",
       "30-39",
       "40-49",
-      "50-59"
+      "50-59",
+      "60-69"
     ]
     let distRange = Math.floor(calculateDistance(station, answer)/10);
     if (distRange == 0) {return calculateDistance(station, answer)}
-    return ranges[distRange];
+    return ranges[distRange-1];
   }
 
   const guessAnimation = {
