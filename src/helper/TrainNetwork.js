@@ -169,15 +169,15 @@ const trainNetwork = {
   },
   "Central Station": {
     "dist": 0,
-    "lines": ["T1", "T2", "T3", "T4", "T8", "T9"],
+    "lines": ["T1", "T2", "T3", "T4", "T8", "T9","M1"],
     "users": 2023733,
-    "adjacent": ["Redfern Station", "Town Hall Station", "Museum Station", "Green Square Station"]
+    "adjacent": ["Redfern Station", "Town Hall Station", "Museum Station", "Green Square Station", "Gadigal Station", "Waterloo Station"]
   },
   "Chatswood Station": {
     "dist": 11.65,
-    "lines": ["T1", "T9"],
+    "lines": ["T1", "T9", "M1"],
     "users": 598786,
-    "adjacent": ["Artarmon Station", "Roseville Station"]
+    "adjacent": ["Artarmon Station", "Roseville Station", "North Ryde Station","Crows Nest Station"]
   },
   "Cheltenham Station": {
     "dist": 25.38,
@@ -301,9 +301,9 @@ const trainNetwork = {
   },
   "Epping Station": {
     "dist": 23.39,
-    "lines": ["T9"],
+    "lines": ["T9","M1"],
     "users": 271291,
-    "adjacent": ["Cheltenham Station", "Eastwood Station"]
+    "adjacent": ["Cheltenham Station", "Eastwood Station", "Cherrybrook Station", "Macquarie University Station"]
   },
   "Erskineville Station": {
     "dist": 2.88,
@@ -547,9 +547,9 @@ const trainNetwork = {
   },
   "Martin Place Station": {
     "dist": 2.1,
-    "lines": ["T4"],
+    "lines": ["T4","M1"],
     "users": 400878,
-    "adjacent": ["Town Hall Station", "Kings Cross Station"]
+    "adjacent": ["Town Hall Station", "Kings Cross Station", "Gadigal Station", "Barangaroo Station"]
   },
   "Mascot Station": {
     "dist": 5.1,
@@ -859,9 +859,9 @@ const trainNetwork = {
   },
   "Sydenham Station": {
     "dist": 5.31,
-    "lines": ["T3", "T4", "T8"],
+    "lines": ["T3", "T4", "T8", "M1"],
     "users": 145643,
-    "adjacent": ["St Peters Station", "Tempe Station", "Marrickville Station"]
+    "adjacent": ["St Peters Station", "Tempe Station", "Marrickville Station", "Waterloo Station"]
   },
   "Tempe Station": {
     "dist": 6.84,
@@ -1018,6 +1018,102 @@ const trainNetwork = {
     "lines": ["T2", "T5"],
     "users": 23288,
     "adjacent": ["Fairfield Station", "Guildford Station"]
+  },
+  "Tallawong Station": {
+    "dist": 46.65,
+    "lines": ["M1"],
+    "users": 2379330/12,
+    "adjacent": ["Rouse Hill Station"]
+  },
+  "Rouse Hill Station": {
+    "dist": 43.65,
+    "lines": ["M1"],
+    "users": 1883630/12,
+    "adjacent": ["Tallawong Station", "Kellyville Station"]
+  },
+  "Kellyville Station": {
+    "dist": 41.65,
+    "lines": ["M1"],
+    "users": 1789100/12,
+    "adjacent": ["Rouse Hill Station", "Bella Vista Station"]
+  },
+  "Bella Vista Station": {
+    "dist": 39.65,
+    "lines": ["M1"],
+    "users": 1288610/12,
+    "adjacent": ["Kellyville Station", "Norwest Station"]
+  },
+  "Norwest Station": {
+    "dist": 37.65,
+    "lines": ["M1"],
+    "users": 1213300/12,
+    "adjacent": ["Bella Vista Station", "Hills Showground Station"]
+  },
+  "Hills Showground Station": {
+    "dist": 34.65,
+    "lines": ["M1"],
+    "users": 774500/12,
+    "adjacent": ["Norwest Station", "Castle Hill Station"]
+  },
+  "Castle Hill Station": {
+    "dist": 32.65,
+    "lines": ["M1"],
+    "users": 3103800/12,
+    "adjacent": ["Hills Showground Station", "Cherrybrook Station"]
+  },
+  "Cherrybrook Station": {
+    "dist": 30.65,
+    "lines": ["M1"],
+    "users": 1820460/12,
+    "adjacent": ["Castle Hill Station", "Epping Station"]
+  },
+  "Macquarie University Station": {
+    "dist": 20.69,
+    "lines": ["M1"],
+    "users": 6300080/12,
+    "adjacent": ["Epping Station", "Macquarie Park Station"]
+  },
+  "Macquarie Park Station": {
+    "dist": 19.41,
+    "lines": ["M1"],
+    "users": 1868440/12,
+    "adjacent": ["Macquarie University Station", "North Ryde Station"]
+  },
+  "North Ryde Station": {
+    "dist": 18.03,
+    "lines": ["M1"],
+    "users": 1422190/12,
+    "adjacent": ["Chatswood Station", "Macquarie Park Station"]
+  },
+  "Crows Nest Station": {
+    "dist": 7.64,
+    "lines": ["M1"],
+    "users": 9200*30,
+    "adjacent": ["Chatswood Station", "Victoria Cross Station"]
+  },
+  "Victoria Cross Station": {
+    "dist": 5.98,
+    "lines": ["M1"],
+    "users": 14300*30,
+    "adjacent": ["Crows Nest Station", "Barangaroo Station"]
+  },
+  "Barangaroo Station": {
+    "dist": 3.21,
+    "lines": ["M1"],
+    "users": 9000*30,
+    "adjacent": ["Victoria Cross Station", "Martin Place Station"]
+  },
+  "Gadigal Station": {
+    "dist": 1.27,
+    "lines": ["M1"],
+    "users": 13700*30,
+    "adjacent": ["Martin Place Station", "Central Station"]
+  },
+  "Waterloo Station": {
+    "dist": 1.83,
+    "lines": ["M1"],
+    "users": 4800*30,
+    "adjacent": ["Sydenham Station", "Central Station"]
   }
 };
 
