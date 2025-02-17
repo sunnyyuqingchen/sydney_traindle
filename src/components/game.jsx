@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import StationInput from './stationInput';
 import StationTable from './stationTable';
 import trainNetwork from "../helper/TrainNetwork";
+import {motion} from 'framer-motion';
 
 function Game() {
   // states for stations that the user entered, the correct station and keep track if user has won
@@ -78,12 +79,22 @@ function Game() {
     localStorage.setItem('won', true);
   };
 
+  const winAnimation = {
+    animate: {y: 0},
+    initial: {y: document.documentElement.clientWidth},
+    transition: {
+      type: 'spring',
+      stiffness: 70,
+      damping: 15
+    }
+  }
+
   return (
     <div className="game">
       {answer && (
         <>
           {hasWon ? (
-            <div className="win-container">
+            <motion.div {...winAnimation} className="win-container">
               <div className="win-heading">
                 <h3>Congratulations</h3>
               </div>
@@ -94,7 +105,7 @@ function Game() {
                 <p>Share your score!</p>
                 <img className="win-icon" src="/Icons/share.svg"></img>
               </div>
-            </div>
+            </motion.div>
           ) : (
             <StationInput
               onStationSelect={handleStationSelect}
