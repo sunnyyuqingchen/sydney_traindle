@@ -9,7 +9,7 @@ const hint = () => {
 
     return (
         <div>
-            <button onClick={handleHint} id="hintButton">Map</button>
+            <button onClick={handleHint} id="hintButton"><i class="bi bi-map"></i></button>
             {isHint && (
                 <>
                     <div class="map-container">
