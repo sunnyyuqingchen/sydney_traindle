@@ -62,11 +62,6 @@ class Background extends React.Component {
             }
         }
         return <div className="background-container">
-            <Train></Train>
-            <Train></Train>
-            <Train></Train>
-            <Train></Train>
-            <Train></Train>
             {images}
         </div>;
     }

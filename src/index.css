@@ -75,18 +75,34 @@ input {
   margin-left: 30%;
 }
 
+#closeHint {
+  height: 30px;
+  width: 30px; 
+  border-radius: 20px;
+  background-color: #f6891f;
+  border: 3px solid white;
+  color: white;
+}
+
+#closeHint:hover {
+  background-color: #f3aa60;
+}
+
 .map-container {
-  background-color: #8cdb96;
-  position: absolute;
-  left: -6vw;
-  width: 40vw;
-  height: 70vh;
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 98%;
+  background-color: #ebece6;
   z-index: 5;
 }
 
 #map {
   height: 100%;
-  width: 100%;
+  width: 50%;
 }
 
 .suggestions {

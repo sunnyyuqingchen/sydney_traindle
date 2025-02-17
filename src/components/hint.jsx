@@ -13,7 +13,8 @@ const hint = () => {
             {isHint && (
                 <>
                     <div class="map-container">
-                        <img id="map" src=".\sydney-trains-network-map.png" alt="map" />
+                        <img id="map" src=".\map.png" alt="map" />
+                        <button id="closeHint" onClick={handleHint}>x</button>
                     </div>
                 </>
             )} 
