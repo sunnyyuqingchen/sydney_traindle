@@ -48,7 +48,8 @@ h1 {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  padding-bottom: 1%;
+  padding-top: 3%;
+  padding-bottom: 2%;
   margin: auto;
   width: fit-content;
 }
