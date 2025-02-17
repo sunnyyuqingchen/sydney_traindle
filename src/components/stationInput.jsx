@@ -65,6 +65,13 @@ const stationInput = ({ onStationSelect, suggestions, answer, onWin }) => {
       const newIndex = activeSuggestionIndex + 1;
       setActiveSuggestionIndex(newIndex);
       scrollToActiveSuggestion(newIndex);
+
+    // we move highlighted suggestion down if 'TAB'
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      const newIndex = activeSuggestionIndex === filteredSuggestions.length - 1 ? 0 : activeSuggestionIndex + 1;
+      setActiveSuggestionIndex(newIndex);
+      scrollToActiveSuggestion(newIndex);
     }
   };
 
