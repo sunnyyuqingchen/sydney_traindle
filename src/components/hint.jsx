@@ -8,7 +8,7 @@ const hint = () => {
     };
 
     return (
-        <div>
+        <>
             <button onClick={handleHint} id="hintButton"><i class="bi bi-map"></i></button>
             {isHint && (
                 <>
@@ -18,7 +18,7 @@ const hint = () => {
                     </div>
                 </>
             )} 
-        </div>
+        </>
     )
 }
 
