@@ -178,6 +178,9 @@ input {
 }
 
 .station-table {
+  position: absolute;
+  top: 37vh;
+  left: 10%;
   text-align: center;
   margin: 20px auto;
   width: 80%;
@@ -246,20 +249,54 @@ input {
 }
 
 .win-container {
-  width: 40%;
+  position: fixed;
+  width: 360px;
+  height: 420px;
+  left: calc(42.5vw - 7.5px);
+  top: calc(50vh - 210px);
   margin: auto;
-  margin-bottom: 5%;
+  z-index: 2;
+  background-color: #ebece6;
+  border-radius: 15px;
+  border: 3px solid #acacac;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: #484647;
+  font-weight: 400;
+  font-size: 1.5em;
 }
 
+.win-heading {
+  height: 75px;
+  background-color: #f6891f;
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  color: #ebece6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .win-message {
-  background-color: #8cdb96;
-  color: white;
   padding: 10px;
   border-radius: 5px;
-  font-size: 16px;
   text-align: center;
-  font-weight: 700;
+  width: 75%;
+}
+
+.share-flex {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.win-icon {
+  filter: invert(29%) sepia(1%) saturate(2719%) hue-rotate(289deg) brightness(88%) contrast(91%);
+  width: 50px;
+  height: 50px;
 }
 
 .lines {

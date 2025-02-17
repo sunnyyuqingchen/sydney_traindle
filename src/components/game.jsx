@@ -79,13 +79,20 @@ function Game() {
   };
 
   return (
-    <div className="Game">
+    <div className="game">
       {answer && (
         <>
           {hasWon ? (
             <div className="win-container">
-              <div className="win-message">
-                🎉 Congratulations! You guessed {answer} in {selectedStations.length} {selectedStations.length > 1? "tries" : "try"}! 🎉
+              <div className="win-heading">
+                <h3>Congratulations</h3>
+              </div>
+              <p className="win-message">
+                You guessed {answer} in {selectedStations.length} {selectedStations.length > 1? "tries" : "try"}!
+              </p>
+              <div className="share-flex">
+                <p>Share your score!</p>
+                <img className="win-icon" src="/Icons/share.svg"></img>
               </div>
             </div>
           ) : (

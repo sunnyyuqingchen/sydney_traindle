@@ -1,6 +1,10 @@
 import React from 'react';
 import {motion} from 'framer-motion';
 
+
+//generate a number when page loads and use it to seed background images
+
+
 class Train extends React.Component {
     constructor(props){
         super(props);
@@ -17,6 +21,7 @@ class Train extends React.Component {
     }
     
     componentDidMount() {
+        //rotate trains for testing
         this.interval = setInterval(() => {
           this.setState((prevState) => {
             // Change rotation between 2 and 6
@@ -36,7 +41,7 @@ class Train extends React.Component {
     //returns: xPos, yPos, rotation
     getStartingPos(){
         //select a random bg tile, select 2 nodes, and pick a random point between those two nodes, get required image of train based on nodes and return data
-        return [Math.floor(Math.random() * 700), Math.floor(Math.random() * 350), 2]
+        return [Math.floor(Math.random() * 1920), Math.floor(Math.random() * 1080), Math.floor(Math.random() * 8)]
     }
 
     getTrainImage(){
@@ -54,13 +59,15 @@ class Background extends React.Component {
         this.state = {
             width: window.innerWidth,
             height: window.innerHeight,
+            randSeed: Math.floor(Math.random()*100)
         };
     }
 
     getCurrentDaySeed = (index) => { 
         let today = new Date();
         let seed = today.getDate()+today.getMonth()+today.getFullYear()+(index*1000);
-        return (Math.sin(seed)/2)+0.5;
+        console.log("seed: "+this.state.randSeed);
+        return (Math.sin(10000*seed+this.state.randSeed)/2)+0.5;
     };
 
     updateDimensions = () => {

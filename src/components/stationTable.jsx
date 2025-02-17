@@ -101,12 +101,12 @@ const StationTable = ({ selectedStations, answer }) => {
 
   const getStationRanges = (station) => {
     let ranges = [
-      "10-19",
-      "20-29",
-      "30-39",
-      "40-49",
-      "50-59",
-      "60-69"
+      "10-20",
+      "20-30",
+      "30-40",
+      "40-50",
+      "50-60",
+      "60-70"
     ]
     let distRange = Math.floor(calculateDistance(station, answer)/10);
     if (distRange == 0) {return calculateDistance(station, answer)}
