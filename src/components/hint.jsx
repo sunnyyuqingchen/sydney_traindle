@@ -14,7 +14,7 @@ const hint = () => {
                 <>
                     <div class="map-container">
                         <img id="map" src=".\map.png" alt="map" />
-                        <button id="closeHint" onClick={handleHint}>x</button>
+                        <button id="closeHint" onClick={handleHint}><i class="bi bi-x-lg"></i></button>
                     </div>
                 </>
             )} 
