@@ -83,9 +83,9 @@ function Game() {
       {answer && (
         <>
           {hasWon ? (
-            <div className="autocomplete">
+            <div className="win-container">
               <div className="win-message">
-              🎉 Congratulations! You guessed {answer} in {selectedStations.length} {selectedStations.length > 1? "tries" : "try"}! 🎉
+                🎉 Congratulations! You guessed {answer} in {selectedStations.length} {selectedStations.length > 1? "tries" : "try"}! 🎉
               </div>
             </div>
           ) : (

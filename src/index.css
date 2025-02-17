@@ -245,6 +245,13 @@ input {
   color: #484647;
 }
 
+.win-container {
+  width: 40%;
+  margin: auto;
+  margin-bottom: 5%;
+}
+
+
 .win-message {
   background-color: #8cdb96;
   color: white;
