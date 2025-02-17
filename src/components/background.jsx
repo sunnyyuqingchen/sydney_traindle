@@ -49,12 +49,41 @@ class Train extends React.Component {
 }
 
 class Background extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            width: window.innerWidth,
+            height: window.innerHeight,
+        };
+    }
+
+    getCurrentDaySeed = (index) => { 
+        let today = new Date();
+        let seed = today.getDate()+today.getMonth()+today.getFullYear()+(index*1000);
+        return (Math.sin(seed)/2)+0.5;
+    };
+
+    updateDimensions = () => {
+        this.setState({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        });
+    };
+
+    componentDidMount() {
+        window.addEventListener("resize", this.updateDimensions);
+    }
+    
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updateDimensions);
+    }
+
     render() {
         let width = document.documentElement.clientWidth;
         let height = document.documentElement.clientHeight;
         let images = []
         for (let i = 0;i < Math.ceil(height/(width*0.2))*5; i++){
-            if (Math.random() > 0.5){
+            if (this.getCurrentDaySeed(i) > 0.5){
                 images.push(<img src='/Rails/rails.svg' className="background" key={"bg-tile-"+i}></img>);
             }
             else {
