@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: 'Public Sans NSW';
   src: url('ttf/PublicSans-Regular.ttf');
@@ -69,15 +70,22 @@ input {
   background-color: rgb(183, 183, 183);
   width: 3vw;
   height: 5.3vh;
-  border-color: rgb(172, 172, 172);
+  font-size: 1.5em;
+  color: #f9f9f9;
+  border: 3px solid gray;
   border-radius: 5px;
   min-width: 50px;
   margin-left: 30%;
 }
 
+#hintButton:hover {
+  background-color: rgb(206, 206, 206);
+  border: 3px solid rgb(172, 172, 172);
+}
+
 #closeHint {
-  height: 30px;
-  width: 30px; 
+  height: 35px;
+  width: 35px; 
   border-radius: 20px;
   background-color: #f6891f;
   border: 3px solid white;
@@ -92,10 +100,10 @@ input {
   display: flex;
   position: fixed;
   justify-content: center;
-  top: 10px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 98%;
+  height: 100%;
   background-color: #ebece6;
   z-index: 5;
 }
