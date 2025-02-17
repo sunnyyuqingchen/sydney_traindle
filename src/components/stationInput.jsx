@@ -138,24 +138,22 @@ const stationInput = ({ onStationSelect, suggestions, answer, onWin }) => {
   };
 
   return (
-    <div>
-      <div className='search-container'>
-        <div className="autocomplete">
-          <input
-              id="myInput"
-              type="text"
-              name="stationGuess"
-              placeholder="Station"
-              value={input}
-              onChange={handleChange}
-              onKeyDown={handleKeyDown}
-              onBlur={handleBlur}
-              autoComplete="off"
-            />
-          {renderSuggestions()}
-        </div>
-        <Hint/>
+    <div className='search-container'>
+      <div className="autocomplete">
+        <input
+            id="myInput"
+            type="text"
+            name="stationGuess"
+            placeholder="Station"
+            value={input}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            onBlur={handleBlur}
+            autoComplete="off"
+          />
+        {renderSuggestions()}
       </div>
+      <Hint/>
     </div>
   );
 };
