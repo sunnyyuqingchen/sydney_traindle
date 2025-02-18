@@ -103,7 +103,7 @@ function Game() {
               </p>
               <div className="share-flex">
                 <p>Share your score!</p>
-                <img className="win-icon" src="/Icons/share.svg"></img>
+                <img className="share-icon" src="/Icons/share.svg"></img>
               </div>
             </motion.div>
           ) : (
