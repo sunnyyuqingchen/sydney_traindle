@@ -9,10 +9,10 @@ const hint = () => {
 
     return (
         <>
-            <button onClick={handleHint} id="hintButton"><i class="bi bi-map"></i></button>
+            <button onClick={handleHint} id="hintButton"><i className="bi bi-map"></i></button>
             {isHint && (
                 <>
-                    <div class="map-container">
+                    <div className="map-container">
                         <img id="map" src=".\map.png" alt="map" />
                         <button id="closeHint" onClick={handleHint}><i class="bi bi-x-lg"></i></button>
                     </div>
