@@ -249,7 +249,7 @@ input {
   position: fixed;
   width: 360px;
   height: 420px;
-  left: calc(42.5vw - 7.5px);
+  left: calc(50vw - 180px);
   top: calc(50vh - 210px);
   margin: auto;
   z-index: 2;
