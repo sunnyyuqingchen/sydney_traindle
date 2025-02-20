@@ -349,3 +349,13 @@ a:has(.header-logo) {
   height: 2.5vw;
   z-index: -1;
 }
+
+.guess-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}

@@ -27,8 +27,8 @@ function Game() {
     const day = Math.floor((new Date() - new Date(2000, 0, 1)) / 86400000);
 
     /* mock date for testing */
-    //const mockDate = new Date('2025-01-05');
-    //const today = mockDate.toISOString().split('T')[0];
+    // const mockDate = new Date('2025-01-05');
+    // const today = mockDate.toISOString().split('T')[0];
 
     // if locale storage has same date as today we restore previous game state
     if (storedDate === today) {
@@ -38,7 +38,7 @@ function Game() {
 
     // if new day, get new answer and reset game state
     } else {
-      //const newAnswer = stations[Math.floor(Math.random() * stations.length)];
+      // const newAnswer = stations[Math.floor(Math.random() * stations.length)];
       const newAnswer = stations[Math.floor(seededRandom(day) * stations.length)];
       setAnswer(newAnswer);
 
@@ -107,12 +107,32 @@ function Game() {
               </div>
             </motion.div>
           ) : (
-            <StationInput
-              onStationSelect={handleStationSelect}
-              suggestions={stations}
-              answer={answer}
-              onWin={handleWin}
-            />
+            selectedStations.length === 9 ? (
+              <motion.div {...winAnimation} className="win-container">
+                <div className="win-heading">
+                  <h3>Congratulations</h3>
+                </div>
+                <p className="win-message">
+                  You kinda suck at this (you lost)
+                </p>
+                <div className="share-flex">
+                  <p>Share your score!</p>
+                  <img className="share-icon" src="/Icons/share.svg"></img>
+                </div>
+              </motion.div>
+            ) : (
+              <>
+              <div className='guess-count'>
+                {selectedStations.length}/9
+              </div>
+              <StationInput
+                onStationSelect={handleStationSelect}
+                suggestions={stations}
+                answer={answer}
+                onWin={handleWin}
+              />
+              </>
+            )
           )}
           <StationTable
             selectedStations={selectedStations}
@@ -123,5 +143,6 @@ function Game() {
     </div>
   );
 }
+
 
 export default Game;
