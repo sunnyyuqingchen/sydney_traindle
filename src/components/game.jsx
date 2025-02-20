@@ -94,32 +94,36 @@ function Game() {
       {answer && (
         <>
           {hasWon ? (
-            <motion.div {...winAnimation} className="win-container">
-              <div className="win-heading">
-                <h3>Congratulations</h3>
-              </div>
-              <p className="win-message">
-                You guessed {answer} in {selectedStations.length} {selectedStations.length > 1? "tries" : "try"}!
-              </p>
-              <div className="share-flex">
-                <p>Share your score!</p>
-                <img className="share-icon" src="/Icons/share.svg"></img>
-              </div>
-            </motion.div>
-          ) : (
-            selectedStations.length === 9 ? (
+            <div className='win-blur'>
               <motion.div {...winAnimation} className="win-container">
                 <div className="win-heading">
                   <h3>Congratulations</h3>
                 </div>
                 <p className="win-message">
-                  You kinda suck at this (you lost)
+                  You guessed {answer} in {selectedStations.length} {selectedStations.length > 1? "tries" : "try"}!
                 </p>
                 <div className="share-flex">
                   <p>Share your score!</p>
                   <img className="share-icon" src="/Icons/share.svg"></img>
                 </div>
               </motion.div>
+            </div>
+          ) : (
+            selectedStations.length === 9 ? (
+              <div className='win-blur'>
+                <motion.div {...winAnimation} className="win-container">
+                  <div className="win-heading">
+                    <h3>Congratulations</h3>
+                  </div>
+                  <p className="win-message">
+                    Try again tomorrow!
+                  </p>
+                  <div className="share-flex">
+                    <p>Share your score!</p>
+                    <img className="share-icon" src="/Icons/share.svg"></img>
+                  </div>
+                </motion.div>
+              </div>
             ) : (
               <>
               <div className='guess-count'>
