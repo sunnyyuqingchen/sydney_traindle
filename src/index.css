@@ -358,4 +358,5 @@ a:has(.header-logo) {
   font-weight: bold;
   margin-bottom: 10px;
   text-align: center;
+  color: #484647;
 }

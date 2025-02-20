@@ -123,7 +123,7 @@ function Game() {
             ) : (
               <>
               <div className='guess-count'>
-                {selectedStations.length}/9
+                Attempts: {selectedStations.length}/9
               </div>
               <StationInput
                 onStationSelect={handleStationSelect}
