@@ -89,6 +89,18 @@ function Game() {
     }
   }
 
+  const getGuessImages = () => {
+    let maxGuesses = 9;
+    let guessImages = []
+    if (selectedStations.length < maxGuesses){
+      guessImages.push(<img src="/Guesses/GuessIconHead.svg" className="guess-image"></img>)
+    }
+    for (let i = selectedStations.length; i < maxGuesses-1; i++) {
+      guessImages.push(<img src="/Guesses/GuessIconBody.svg" className="guess-image"></img>)
+    }
+    return guessImages
+  }
+
   return (
     <div className="game">
       {answer && (
@@ -127,7 +139,7 @@ function Game() {
             ) : (
               <>
               <div className='guess-count'>
-                Attempts: {selectedStations.length}/9
+                {getGuessImages()}
               </div>
               <StationInput
                 onStationSelect={handleStationSelect}

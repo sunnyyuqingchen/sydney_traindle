@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Train" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73 30.75">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #606060;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        stroke-miterlimit: 10;
+        stroke-width: .5px;
+      }
+
+      .cls-1, .cls-5 {
+        stroke: #3a3a3a;
+      }
+
+      .cls-2 {
+        fill: #9ddbf4;
+        stroke: #9ddbf4;
+      }
+
+      .cls-3 {
+        fill: #1e1e1e;
+        stroke: #1e1e1e;
+      }
+
+      .cls-4 {
+        fill: #ef3f3f;
+        stroke: #ef3f3f;
+      }
+
+      .cls-5 {
+        fill: #3a3a3a;
+      }
+
+      .cls-6 {
+        fill: #bc3737;
+        stroke: #bc3737;
+      }
+    </style>
+  </defs>
+  <rect id="Small_Hitch" data-name="Small Hitch" class="cls-3" x=".25" y="21.5" width="6" height="1" transform="translate(6.5 44) rotate(-180)"/>
+  <rect id="Body_Shadow" data-name="Body Shadow" class="cls-6" x="3.75" y=".25" width="67" height="4.25" rx="1" ry="1" transform="translate(74.5 4.75) rotate(-180)"/>
+  <rect id="Hitch_Shadow" data-name="Hitch Shadow" class="cls-3" x="66.75" y="19.25" width="6" height="3.25" rx="1" ry="1" transform="translate(139.5 41.75) rotate(-180)"/>
+  <rect id="Hitch" class="cls-5" x="66.75" y="21" width="6" height="3" rx="1" ry="1" transform="translate(139.5 45) rotate(-180)"/>
+  <path id="Body" class="cls-4" d="M3.75,2h67v13.5c0,.55-.45,1-1,1H4.75c-.55,0-1-.45-1-1V2h0Z" transform="translate(74.5 18.5) rotate(-180)"/>
+  <rect id="Body_Line" data-name="Body Line" class="cls-5" x="3.75" y="15" width="67" height="9" rx="1" ry="1"/>
+  <circle id="Wheel_1" data-name="Wheel 1" class="cls-1" cx="57.25" cy="24" r="6.5"/>
+  <circle id="Wheel_2" data-name="Wheel 2" class="cls-1" cx="37.25" cy="24" r="6.5"/>
+  <circle id="Wheel_3" data-name="Wheel 3" class="cls-1" cx="17.25" cy="24" r="6.5"/>
+  <rect class="cls-2" x="30.75" y="4.5" width="13" height="8" rx="1" ry="1"/>
+  <rect class="cls-2" x="10.75" y="4.5" width="13" height="8" rx="1" ry="1"/>
+  <rect class="cls-2" x="50.75" y="4.5" width="13" height="8" rx="1" ry="1"/>
+</svg>

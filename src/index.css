@@ -365,10 +365,10 @@ a:has(.header-logo) {
 .guess-count {
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-  font-weight: bold;
+  align-items: end;
   margin-bottom: 10px;
-  text-align: center;
-  color: #484647;
+}
+
+.guess-image {
+  width: 2.75vw;
 }
