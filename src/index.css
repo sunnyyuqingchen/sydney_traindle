@@ -360,7 +360,7 @@ a:has(.header-logo) {
   z-index: -1;
 }
 
-.guess-count {
+.guess-image-container {
   display: flex;
   justify-content: center;
   align-items: end;
@@ -369,4 +369,11 @@ a:has(.header-logo) {
 
 .guess-image {
   width: 2.75vw;
+}
+
+.guess-count {
+  text-align: center;
+  font-family: 'Public Sans NSW';
+  color: #484647;
+  font-size: 12pt;
 }

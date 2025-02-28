@@ -138,7 +138,8 @@ function Game() {
               </div>
             ) : (
               <>
-              <div className='guess-count'>
+              <p className='guess-count'>Guesses Remaining: {9-selectedStations.length}</p>
+              <div className='guess-image-container'>
                 {getGuessImages()}
               </div>
               <StationInput
