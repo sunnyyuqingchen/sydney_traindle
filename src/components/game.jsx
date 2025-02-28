@@ -125,7 +125,7 @@ function Game() {
               <div className='win-blur'>
                 <motion.div {...winAnimation} className="win-container">
                   <div className="win-heading">
-                    <h3>Congratulations</h3>
+                    <h3>Nice Try</h3>
                   </div>
                   <p className="win-message">
                     Try again tomorrow!

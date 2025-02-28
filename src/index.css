@@ -314,13 +314,19 @@ input {
 .header {
   position: absolute;
   top: 1vw;
-  left: 0px;
+  right: 0px;
   width: 99vw;
   height: 50px;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   
+}
+
+.header * {
+  border-left: 4px dotted blue;
+  padding-left: 5vw;
+  right: 1vw;
 }
 
 a:has(.header-logo) {

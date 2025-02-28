@@ -13,6 +13,7 @@ class Header extends React.Component {
     render() {
       return <div className="header">
         <Icon logo='github-logo.svg' link='https://github.com/hempunyane/hempunyane.github.io'/>
+        <Icon logo='github-logo.svg' link='https://github.com/hempunyane/hempunyane.github.io'/>
       </div>;
     }
   }
