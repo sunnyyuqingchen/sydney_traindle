@@ -66,6 +66,12 @@ input {
   min-height: 40px;
 }
 
+input:focus {
+  border-color: #f6891f;
+  box-shadow: 0 0 5px #f6891f;
+  outline: 0;
+}
+
 #hintButton {
   background-color: rgb(183, 183, 183);
   width: 3vw;
