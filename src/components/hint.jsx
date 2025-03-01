@@ -21,7 +21,7 @@ const hint = () => {
                         >
                             {/* Image with Drag & Zoom */}
                             <TransformComponent>
-                                <img id="map" src=".\map.png" alt="map" />
+                                <img id="map" src="./Maps/map-old.png" alt="map" />
                             </TransformComponent>
                         </TransformWrapper>
                         <button id="closeHint" onClick={handleHint}><i class="bi bi-x-lg"></i></button>
