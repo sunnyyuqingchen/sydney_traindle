@@ -28,40 +28,151 @@ class IconGenerator extends React.Component {
 }
 
 class SearchBox extends React.Component {
-    constructor(props){
-        super(props)
+    constructor(props) {
+        super(props);
         this.state = {
-            value: ""
-        }
+            value: "",
+            filteredSuggestions: [],
+            activeSuggestionIndex: 0,
+            showSuggestions: false
+        };
+        this.suggestionRefs = [];
     }
 
     handleChange = (e) => {
+        const userInput = e.target.value;
+        const { suggestions } = this.props;
+
+        const filtered = suggestions.filter(
+            (suggestion) =>
+                suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
+        );
+
         this.setState({
-            value: e.target.value
-        })
-    }
+            value: userInput,
+            filteredSuggestions: filtered,
+            activeSuggestionIndex: 0,
+            showSuggestions: true
+        });
+    };
 
     handleKeyDown = (e) => {
-        if (e.key === "Enter"){
-            let text = capitalizeString(this.state.value)
-            if (!trainNetwork[text]){ //breaks out if station not found
-                return
+        const { filteredSuggestions, activeSuggestionIndex } = this.state;
+        
+        if (e.key === 'Enter') {
+            if (this.state.value === '' || filteredSuggestions.length === 0) {
+                return;
             }
-            this.props.submitGuess(text)
-            this.setState({
-                value: ""
-            })
-        }
-    }
 
-    render(){
-        return <input 
-            onChange={this.handleChange}
-            value={this.state.value}
-            onKeyDown={this.handleKeyDown}
-            className={this.props.classProp}
-            placeholder={this.props.dummyText}>
-        </input>
+            const selectedGuess = filteredSuggestions[activeSuggestionIndex];
+            this.props.submitGuess(selectedGuess);
+            this.setState({
+                value: "",
+                showSuggestions: false
+            });
+
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (activeSuggestionIndex === 0) {
+                return;
+            }
+            const newIndex = activeSuggestionIndex - 1;
+            this.setState({ activeSuggestionIndex: newIndex });
+            this.scrollToActiveSuggestion(newIndex);
+
+        } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (activeSuggestionIndex === filteredSuggestions.length - 1) {
+                return;
+            }
+            const newIndex = activeSuggestionIndex + 1;
+            this.setState({ activeSuggestionIndex: newIndex });
+            this.scrollToActiveSuggestion(newIndex);
+
+        } else if (e.key === 'Tab') {
+            e.preventDefault();
+            const newIndex = activeSuggestionIndex === filteredSuggestions.length - 1 ? 0 : activeSuggestionIndex + 1;
+            this.setState({ activeSuggestionIndex: newIndex });
+            this.scrollToActiveSuggestion(newIndex);
+        }
+    };
+
+    handleClick = (suggestion) => {
+        this.props.submitGuess(suggestion);
+        this.setState({
+            value: '',
+            showSuggestions: false
+        });
+    };
+
+    handleHover = (index) => {
+        this.setState({ activeSuggestionIndex: index });
+    };
+
+    handleBlur = () => {
+        setTimeout(() => {
+            this.setState({
+                showSuggestions: false,
+                value: ''
+            });
+        }, 150);
+    };
+
+    scrollToActiveSuggestion = (index) => {
+        if (this.suggestionRefs[index]) {
+            this.suggestionRefs[index].scrollIntoView({
+                block: 'nearest',
+                inline: 'nearest'
+            });
+        }
+    };
+
+    renderSuggestions = () => {
+        const { showSuggestions, value, filteredSuggestions, activeSuggestionIndex } = this.state;
+        
+        if (showSuggestions && value) {
+            if (filteredSuggestions.length) {
+                return (
+                    <ul className="suggestions">
+                        {filteredSuggestions.map((suggestion, index) => (
+                            <li
+                                key={suggestion}
+                                ref={(el) => (this.suggestionRefs[index] = el)}
+                                className={
+                                    index === activeSuggestionIndex
+                                        ? 'suggestion-active'
+                                        : 'suggestion-unactive'
+                                }
+                                onMouseEnter={() => this.handleHover(index)}
+                                onClick={() => this.handleClick(suggestion)}
+                            >
+                                {suggestion}
+                            </li>
+                        ))}
+                    </ul>
+                );
+            } else {
+                return <div className="no-suggestions">No matches</div>;
+            }
+        }
+        return null;
+    };
+
+    render() {
+        return (
+            <div className="autocomplete">
+                {this.renderSuggestions()}
+                <input
+                    onChange={this.handleChange}
+                    value={this.state.value}
+                    onKeyDown={this.handleKeyDown}
+                    className={this.props.classProp}
+                    placeholder={this.props.dummyText}
+                    onBlur={this.handleBlur}
+                    autoComplete="off"
+                />
+            </div>
+        );
     }
 }
 
@@ -455,11 +566,18 @@ class AnswerField extends React.Component {
     }
 
     render() {
+        const stations = Object.keys(trainNetwork);
+
         return <div className='answer-field shadow'>
             <h1 className='timer'><span>Timer</span><Timer classProp="timer-number" ref={this.timerRef}/></h1>
             {/*Changes what is rendered if no guesses have been made or hint/map is open*/}
             {this.screenSelect()}
-            <SearchBox submitGuess={this.submitGuess} classProp="answer-field-search" dummyText="Station Name"></SearchBox>
+            <SearchBox 
+                    submitGuess={this.submitGuess} 
+                    classProp="answer-field-search" 
+                    dummyText="Station Name"
+                    suggestions={stations}
+                />
         </div>
     }
 }

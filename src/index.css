@@ -120,12 +120,14 @@ h1 {
   max-height: 232px;
   overflow-y: auto;
   border: 1px solid #ccc;
-  border-top: none;
+  border-bottom: none;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 5px 0;
   background-color: white;
   z-index: 1000;
+  bottom: 100%;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
 }
 
 .suggestions li {
@@ -138,6 +140,7 @@ h1 {
 
 .suggestions li:last-child {
   border-bottom: none;
+  border-top: solid 1px grey;
 }
 
 .suggestion-active {
@@ -156,7 +159,11 @@ h1 {
   padding: 10px;
   position: absolute;
   padding: 0;
-  margin: 0;
+  margin: 0 0 5px 0;
+  bottom: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-bottom: none;
 }
 
 .suggestions::-webkit-scrollbar {
@@ -723,4 +730,22 @@ h2.answer-field-h2 {
 
 .red {
   background-color: #FF8888;
+}
+
+#myInput {
+  border: 2px solid #939598;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  width: 25vw;
+  height: 5vh;
+  min-height: 40px;
+}
+
+#myInput:focus {
+  border-color: #f6891f;
+  box-shadow: 0 0 5px #f6891f;
+  outline: 0;
 }
