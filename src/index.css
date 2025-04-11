@@ -54,24 +54,6 @@ h1 {
   width: fit-content;
 }
 
-input {
-  border: 2px solid #939598;
-  border-radius: 5px;
-  background-color: #f1f1f1;
-  font-size: 16px;
-  color: black;
-  text-align: center;
-  width: 25vw;
-  height: 5vh;
-  min-height: 40px;
-}
-
-input:focus {
-  border-color: #f6891f;
-  box-shadow: 0 0 5px #f6891f;
-  outline: 0;
-}
-
 #hintButton {
   background-color: rgb(183, 183, 183);
   width: 3vw;
@@ -382,4 +364,363 @@ a:has(.header-logo) {
   font-family: 'Public Sans NSW';
   color: #484647;
   font-size: 12pt;
+}
+
+
+
+.answer-field {
+  position: fixed;
+  top: 100px;
+  left: calc(50vw - 250px);
+  width: 500px;
+  height: 700px;
+  background-color: #fdfdfc;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.shadow {
+  box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
+}
+
+.answer-field-body {
+  position: relative;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.timer {
+  width: calc(100% - 10px);
+  height: 50px;
+  background-color: #f6891f;
+  color: #ffffff;
+  margin: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  gap: 7px;
+  align-items: baseline;
+  justify-content: flex-end;
+}
+
+.timer * {
+  font-family: 'Inter';
+  font-weight: 350;
+  position: relative;
+  top: 20px;
+}
+
+.timer span {
+  font-size: 10pt;
+}
+
+.timer-number {
+  width: 125px;
+}
+
+.previous-guess-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.previous-guess-background {
+  background-color: #f4f5f0;
+}
+
+.previous-guess-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.previous-guess-symbol {
+  width: 30px;
+  height: 30px;
+  justify-self: end;
+}
+
+.center-text-symbol {
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.no-margin {
+  margin: 0px;
+}
+
+.last-guessed-container {
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  gap: 20px;
+  border-bottom: 1px solid #ebece6;
+}
+
+.last-guessed-container img {
+  width: 75px;
+  height: 75px;
+}
+
+.last-guessed-container div * {
+  margin: 0px
+}
+
+h3.answer-field-h3 {
+  font-family: 'Inter';
+  font-size: 10pt;
+  font-weight: 400;
+}
+
+h2.answer-field-h2 {
+  font-size: 14pt;
+}
+
+.history-container {
+  position: relative;
+  width: 100%;
+  height: 323.667px;
+  border-bottom: 1px solid #ebece6;
+  padding-bottom: 10px;
+}
+
+.stations-away-container {
+  position: relative;
+  width: 20%;
+}
+
+.symbol-margin {
+  margin-left: auto;
+}
+
+.symbol-splitter {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.symbol-container {
+  display: flex;
+  gap: 10px;
+  padding-right: 10px;
+  height: 100%;
+}
+
+.symbol-container div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30px;
+  bottom: 6pt;
+}
+
+.symbol-container div img {
+  width: 30px;
+  height: 30px;
+}
+
+.answer-footer {
+  display: flex;
+  width: 100%;
+  margin-top: 1px;
+  justify-content: space-between;
+}
+
+.orange-text {
+  color: #f6891f;
+}
+
+.guesses-left-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  top: 9px;
+  flex: 1;
+}
+
+.guesses-left-text {
+  font-size: 32pt;
+  font-family: 'Inter';
+  font-weight: 400;
+}
+
+.footer-button-container {
+  display: flex;
+  align-self: flex-end;
+  gap: 10px;
+}
+
+.footer-button {
+  width: 45px;
+  height: 45px;
+  border-radius: 45px;
+  background-color: #f6891f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-button img{
+  width: 30px;
+  height: 30px;
+  filter: invert(100%);
+}
+
+.answer-field-search {
+  width: 460px;
+  height: 50px;
+  margin: auto;
+  border: 0px;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  text-align: start;
+  font-size: 20pt;
+  color: #000000;
+  outline: 0;
+  text-indent: 10px;
+}
+
+.answer-field-search::placeholder {
+  color: #fdfdfc;
+}
+
+.htp-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 460px;
+  height: 460px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.htp-square {
+  width: 70%;
+  height: 70%;
+  border-radius: 10px;
+  background-color: #e4e4e4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.htp-square h2 {
+  font-size: 28pt;
+  font-weight: 400;
+  text-align: center;
+  margin: 20px;
+}
+
+.htp-square h3 {
+  font-family: 'Inter';
+  font-weight: 300;
+  font-size: 14pt;
+  text-align: center;
+  margin: 20px;
+}
+
+.htp-square img {
+  width: 40px;
+  height: 40px;
+}
+
+.htp-arrow {
+  width: 60px;
+  height: 60px;
+}
+
+.cursor-hover:hover {
+  cursor: pointer;
+}
+
+.htp-picture-container {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-around;
+  width: 75%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.htp-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  border: 2px solid #b8b8b8;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.htp-circle img {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+}
+
+.htp-circle-text {
+  width: 100%;
+  text-align: center;
+  margin: 0 !important;
+}
+
+.htp-space-text {
+  line-height: 3;
+}
+
+.htp-t-logo {
+  margin: auto;
+  width: 75px !important;
+  height: 75px !important;
+}
+
+.htp-close-container {
+  display: flex;
+  width: calc(100% - 20px);
+  height: 30px;
+  justify-content: flex-end;
+  margin: 10px;
+}
+
+.htp-close-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  background-color: #f6891f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.htp-close-image {
+  filter: invert(100%);
+}
+
+.green {
+  background-color: #9EFB96;
+}
+
+.yellow {
+  background-color: #F4FA9C;
+}
+
+.red {
+  background-color: #FF8888;
 }

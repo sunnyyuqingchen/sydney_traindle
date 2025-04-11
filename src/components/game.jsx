@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import StationInput from './stationInput';
 import StationTable from './stationTable';
+import AnswerField from './answerField';
 import trainNetwork from "../helper/TrainNetwork";
 import {motion} from 'framer-motion';
 
@@ -151,6 +152,12 @@ function Game() {
               </>
             )
           )}
+          {/*
+          <AnswerField
+            answerStation={answer}
+          />
+          {console.log(answer)}
+          */}
           <StationTable
             selectedStations={selectedStations}
             answer={answer}
