@@ -10,6 +10,7 @@ function Game() {
   const [selectedStations, setSelectedStations] = useState([]);
   const [answer, setAnswer] = useState(null);
   const [hasWon, setHasWon] = React.useState(false);
+  const [useNew, setUseNew] = React.useState(false);
 
   // collect the station names from graph
   const stations = Object.keys(trainNetwork);
@@ -104,32 +105,19 @@ function Game() {
 
   return (
     <div className="game">
-      {answer && (
-        <>
-          {hasWon ? (
-            <div className='win-blur'>
-              <motion.div {...winAnimation} className="win-container">
-                <div className="win-heading">
-                  <h3>Congratulations</h3>
-                </div>
-                <p className="win-message">
-                  You guessed {answer} in {selectedStations.length} {selectedStations.length > 1? "tries" : "try"}!
-                </p>
-                <div className="share-flex">
-                  <p>Share your score!</p>
-                  <img className="share-icon" src="/Icons/share.svg"></img>
-                </div>
-              </motion.div>
-            </div>
-          ) : (
-            selectedStations.length === 9 ? (
+      {useNew ? (
+        <AnswerField answerStation={answer}/>
+      ) : (
+        answer && (
+          <>
+            {hasWon ? (
               <div className='win-blur'>
                 <motion.div {...winAnimation} className="win-container">
                   <div className="win-heading">
-                    <h3>Nice Try</h3>
+                    <h3>Congratulations</h3>
                   </div>
                   <p className="win-message">
-                    Try again tomorrow!
+                    You guessed {answer} in {selectedStations.length} {selectedStations.length > 1? "tries" : "try"}!
                   </p>
                   <div className="share-flex">
                     <p>Share your score!</p>
@@ -138,31 +126,42 @@ function Game() {
                 </motion.div>
               </div>
             ) : (
-              <>
-              <p className='guess-count'>Guesses Remaining: {9-selectedStations.length}</p>
-              <div className='guess-image-container'>
-                {getGuessImages()}
-              </div>
-              <StationInput
-                onStationSelect={handleStationSelect}
-                suggestions={stations}
-                answer={answer}
-                onWin={handleWin}
-              />
-              </>
-            )
-          )}
-          {/*
-          <AnswerField
-            answerStation={answer}
-          />
-          {console.log(answer)}
-          */}
-          <StationTable
-            selectedStations={selectedStations}
-            answer={answer}
-          />
-        </>
+              selectedStations.length === 9 ? (
+                <div className='win-blur'>
+                  <motion.div {...winAnimation} className="win-container">
+                    <div className="win-heading">
+                      <h3>Nice Try</h3>
+                    </div>
+                    <p className="win-message">
+                      Try again tomorrow!
+                    </p>
+                    <div className="share-flex">
+                      <p>Share your score!</p>
+                      <img className="share-icon" src="/Icons/share.svg"></img>
+                    </div>
+                  </motion.div>
+                </div>
+              ) : (
+                <>
+                <p className='guess-count'>Guesses Remaining: {9-selectedStations.length}</p>
+                <div className='guess-image-container'>
+                  {getGuessImages()}
+                </div>
+                <StationInput
+                  onStationSelect={handleStationSelect}
+                  suggestions={stations}
+                  answer={answer}
+                  onWin={handleWin}
+                />
+                </>
+              )
+            )}
+            <StationTable
+              selectedStations={selectedStations}
+              answer={answer}
+            />
+          </>
+        )
       )}
     </div>
   );
