@@ -10,13 +10,16 @@ Sydney Traindle is a web based game based on guessing games such as wordle. The 
 *Project Management*
 
 ### [William Orgill](https://github.com/william-orgill)
-*Backend Development*
+*Full Stack Development*
 
 ### [Sunny Chen](https://github.com/sunnyyuqingchen)
 *Frontend Development*
 
 ### [Darcy Power](https://github.com/sorryvol)
 *Frontend Development*
+
+### [Carrie Wu](https://www.behance.net/carrie_wudesign)
+*UI/UX Design*
 
 ---
 
