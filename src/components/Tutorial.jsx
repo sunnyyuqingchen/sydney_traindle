@@ -71,7 +71,7 @@ const Tutorial = ({tutorial, setTutorial}) => {
             <CenteredContainer>
                 <StyledHeader>Distance from Central</StyledHeader>
                 <StyledText>▲ indicates that today's station is relatively further than your most recent guess.</StyledText>
-                <StyledText>▼ indicates that today's station is relatively further than your most recent guess.</StyledText>
+                <StyledText>▼ indicates that today's station is relatively closer than your most recent guess.</StyledText>
             </CenteredContainer>
             <CenteredContainer>
                 <StyledHeader>Stations away</StyledHeader>
