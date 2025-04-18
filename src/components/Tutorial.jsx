@@ -80,11 +80,11 @@ const Tutorial = ({tutorial, setTutorial}) => {
             
             <ColorContainer>
                 <ColorCodedBox style={{backgroundColor: '#fa8f94'}}></ColorCodedBox>
-                <span>Correct!</span>
+                <span>Incorrect</span>
                 <ColorCodedBox style={{backgroundColor: '#ebd489'}}></ColorCodedBox>
                 <span>Partially correct</span>
                 <ColorCodedBox style={{backgroundColor: '#8cdb96'}}></ColorCodedBox>
-                <span>Incorrect</span>
+                <span>Correct!</span>
             </ColorContainer>
         </TutorialContainer>
     )
