@@ -7,7 +7,7 @@ function getNumberLength(number){
 }
 
 
-//isSmall prop
+
 class IconGenerator extends React.Component {
     constructor(props) {
         super(props);
@@ -776,11 +776,13 @@ class AnswerField extends React.Component {
             <div className="small-answer-group">
                 <div className="relative">
                     <div className="popout-icon-align">
-                        <TrainlinePopout
-                            ref={el => this.trainlineRefs[guess.stationName] = el}
-                            colour={this.getCorrectColour("lines", guess.lines)}
-                            trainlines={guess.lines}
-                        />
+                        {guess.lines.length === 1 ? (null) : (
+                            <TrainlinePopout
+                                ref={el => this.trainlineRefs[guess.stationName] = el}
+                                colour={this.getCorrectColour("lines", guess.lines)}
+                                trainlines={guess.lines}
+                            />
+                        )}
                         <div
                             onMouseEnter={() => this.managePopout(guess.stationName, true)}
                             onMouseLeave={() => this.managePopout(guess.stationName, false)}
@@ -792,6 +794,7 @@ class AnswerField extends React.Component {
                                 <IconGenerator key={guess.stationName} isSmall={true} lines={guess.lines}/>
                             )}
                         </div>
+
                     </div>
                     {includeTips ? (
                         <div className={"small-icon-guess-indicator "+this.getCorrectColour("lines", guess.lines)}></div>

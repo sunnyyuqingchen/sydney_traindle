@@ -10,7 +10,7 @@ function Game() {
   const [selectedStations, setSelectedStations] = useState([]);
   const [answer, setAnswer] = useState(null);
   const [hasWon, setHasWon] = React.useState(false);
-  const [useNew, setUseNew] = React.useState(false);
+  const [useNew, setUseNew] = React.useState(true);
 
   // collect the station names from graph
   const stations = Object.keys(trainNetwork);
