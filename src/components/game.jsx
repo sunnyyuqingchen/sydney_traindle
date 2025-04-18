@@ -4,6 +4,7 @@ import StationTable from './stationTable';
 import AnswerField from './answerField';
 import trainNetwork from "../helper/TrainNetwork";
 import {motion} from 'framer-motion';
+import Tutorial from './Tutorial';
 
 function Game() {
   // states for stations that the user entered, the correct station and keep track if user has won
@@ -11,7 +12,7 @@ function Game() {
   const [answer, setAnswer] = useState(null);
   const [hasWon, setHasWon] = React.useState(false);
   const [useNew, setUseNew] = React.useState(false);
-
+  const [tutorial, setTutorial] = useState(true);
   // collect the station names from graph
   const stations = Object.keys(trainNetwork);
 
@@ -103,10 +104,16 @@ function Game() {
     return guessImages
   }
 
+
   return (
     <div className="game">
-      {useNew ? (
-        <AnswerField answerStation={answer}/>
+      <div className="title">
+        <h1>
+          <img id='t-logo' src="/Logos/TfNSW_T.svg"></img> Sydney Traindle
+        </h1>
+      </div>
+      {tutorial ? (
+        <Tutorial tutorial={tutorial} setTutorial={setTutorial}/>
       ) : (
         answer && (
           <>
