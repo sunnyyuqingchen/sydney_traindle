@@ -593,6 +593,218 @@ class Guess{
 }
 
 
+//takes props: 
+//  closeHTP = a function that changes the a state in the parent to control visibility
+//  showButton = a bool deciding if a close button should be rendered
+class HowToPlay extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            screenSelect: 0,
+        }
+        this.screens = this.addScreens()
+        this.addScreens()
+        this.maxScreenIndex = this.screens.length-1
+    }
+
+    //definitions for how to play screens
+    addScreens(){
+        const HTPSquare = styled.div`
+            width: 70%;
+            height: 70%;
+            border-radius: 10px;
+            background-color: #e4e4e4;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h2 {
+                font-size: 28pt;
+                font-weight: 400;
+                text-align: center;
+                margin: 20px;
+            }
+
+            h3 {
+                font-family: 'Inter';
+                font-weight: 300;
+                font-size: 14pt;
+                text-align: center;
+                margin: 20px;
+            }
+            
+            img {
+                width: 40px;
+                height: 40px;
+            }
+
+            #t-logo {
+                margin: auto;
+                width: 75px !important;
+                height: 75px !important;
+            }
+        `
+
+        const HTPCircle = styled.div`
+            width: 50px;
+            height: 50px;
+            border-radius: 100px;
+            border: 2px solid #b8b8b8;
+            display: flex;
+            align-items: center;
+            margin: 0;
+
+            img {
+                width: 90%;
+                height: 90%;
+                margin: auto;
+            }
+        `
+
+        const HTPPictureContainer = styled.div`
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: space-around;
+            width: 75%;
+            margin-top: 0;
+            margin-bottom: 0;
+        `
+
+        //holds each screen
+        let screens = []
+
+        screens.push(<HTPSquare className="shadow">
+            <h2>Goal</h2>
+            <img id="t-logo" src="./Logos/TfNSW_T.svg"></img>
+            <h3>
+                Use the search box at the bottom to try and guess the correct station,
+                you will be given hints along the way to help you guess.
+            </h3>
+        </HTPSquare>)
+
+        screens.push(<HTPSquare className="shadow">
+            <h2>Distance</h2>
+            <HTPPictureContainer>
+                <HTPCircle>
+                    <img src="./Icons/arrow_up.svg"></img>
+                </HTPCircle>
+                <HTPCircle>
+                    <img src="./Icons/arrow_down.svg"></img>
+                </HTPCircle>
+            </HTPPictureContainer>
+            <h3>
+                An up arrow means your guess is further from central than the answer station and vice versa.
+            </h3>
+        </HTPSquare>)
+
+        screens.push(<HTPSquare className="shadow">
+            <h2>Stops</h2>
+            <HTPPictureContainer>
+                <HTPCircle>
+                    <h2 className="center-text">12</h2>
+                </HTPCircle>
+            </HTPPictureContainer>
+            <h3>
+                A number will be shown to represent how many stations the correct answer is from your guess
+            </h3>
+        </HTPSquare>)
+
+        screens.push(<HTPSquare className="shadow">
+            <h2>Colours</h2>
+            <HTPPictureContainer>
+                <HTPCircle className="green"/>
+                <HTPCircle className="yellow"/>
+                <HTPCircle className="red"/>
+            </HTPPictureContainer>
+            <h3 className="space-text">
+                Green - correct<br/>
+                Yellow - partially correct<br/>
+                Red - incorrect
+            </h3>
+        </HTPSquare>)
+
+        //sets screen array in constructor to array holding all screens
+        this.screens = screens
+    }
+
+    changeScreen(goToNextScreen){
+        let screenNo
+        if (goToNextScreen){
+            screenNo = this.state.screenSelect+1
+            if (screenNo > this.maxScreenIndex){
+                screenNo = 0
+            }
+        }
+        else {
+            screenNo = this.state.screenSelect-1
+            if (screenNo < 0){
+                screenNo = this.maxScreenIndex
+            }
+        }
+        this.setState({
+            screenSelect: screenNo
+        })
+    }
+
+    render(){
+        const HTPContainer = styled.div`
+            display: flex;
+            flex-wrap: wrap;
+            width: 460px;
+            height: 460px;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            justify-content: center;
+            align-items: center;
+        `
+
+        const HTPArrow = styled.img`
+            width: 60px;
+            height: 60px;
+        `
+
+        const HTPCloseContainer = styled.div`
+            display: flex;
+            width: calc(100% - 20px);
+            height: 30px;
+            justify-content: flex-end;
+            margin: 10px;
+        `
+
+        const HTPCloseButton = styled.div`
+            width: 30px;
+            height: 30px;
+            border-radius: 100px;
+            background-color: #f6891f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        `
+
+
+        return <div>
+            <HTPCloseContainer>
+                {/*Renders a close button when prop showButton is true*/}
+                {this.props.showButton ? (
+                    <HTPCloseButton onClick={() => this.props.closeHTP()} className="cursor-hover">
+                        <img onClick={() => this.props.closeHTP()} src="./Icons/close.svg" className="invert cursor-hover"></img>
+                    </HTPCloseButton>
+                ) : (null)}
+            </HTPCloseContainer>
+
+            <HTPContainer>
+                <HTPArrow onClick={() => this.changeScreen(false)} className="cursor-hover" src="./Icons/arrow_back.svg"></HTPArrow>
+                    {this.state.screenSelect === 0 && this.screens[0]}
+                    {this.state.screenSelect === 1 && this.screens[1]}
+                    {this.state.screenSelect === 2 && this.screens[2]}
+                    {this.state.screenSelect === 3 && this.screens[3]}
+                <HTPArrow onClick={() => this.changeScreen(true)} className="cursor-hover" src="./Icons/arrow_forward.svg"></HTPArrow>
+            </HTPContainer>
+        </div>
+    }
+}
 
 class AnswerField extends React.Component {
     constructor(props){
@@ -602,14 +814,14 @@ class AnswerField extends React.Component {
         this.state = {
             guesses: [],
             remainingGuesses: 7,
-            showHTP: false,
             showMap: false,
+            showHTP: false,
             tipSelect: 0,
             showSearchbar: true
         }
     }
 
-    toggleHTP(){
+    toggleHTP = () => {
         this.setState({
             showHTP: !this.state.showHTP,
             showMap: false
@@ -820,99 +1032,10 @@ class AnswerField extends React.Component {
         </div>
     }
 
-    tipModify(isPlus) {
-        if (isPlus){
-            this.setState({
-                tipSelect: (this.state.tipSelect+1)%4
-            })
-        }
-        else {
-            if (this.state.tipSelect === 0){
-                this.setState({
-                    tipSelect: 3
-
-                })
-            }
-            else {
-                this.setState({
-                    tipSelect: this.state.tipSelect-1
-                })
-            }
-        }
-    }
-
     //content of what gets rendered, game/how to play/map screen
     screenSelect() {
-        let gameTip = <div className="htp-square shadow">
-            <h2>Goal</h2>
-            <img className="htp-t-logo" src="./Logos/TfNSW_T.svg"></img>
-            <h3>
-                Use the search box at the bottom to try and guess the correct station,
-                you will be given hints along the way to help you guess.
-            </h3>
-        </div>
-
-        let distanceTip = <div className="htp-square shadow">
-            <h2>Distance</h2>
-            <div className="htp-picture-container">
-                <div className="htp-circle">
-                    <img src="./Icons/arrow_up.svg"></img>
-                </div>
-                <div className="htp-circle">
-                    <img src="./Icons/arrow_down.svg"></img>
-                </div>
-            </div>
-            <h3>
-                An up arrow means your guess is further from central than the answer station and vice versa.
-            </h3>
-        </div>
-
-        let stopsTip = <div className="htp-square shadow">
-            <h2>Stops</h2>
-            <div className="htp-picture-container">
-                <div className="htp-circle">
-                    <h2 className="htp-circle-text">12</h2>
-                </div>
-            </div>
-            <h3>
-                A number will be shown to represent how many stations the correct answer is from your guess
-            </h3>
-        </div>
-
-        let colourTip = <div className="htp-square shadow">
-            <h2>Colours</h2>
-            <div className="htp-picture-container">
-                <div className="htp-circle green"></div>
-                <div className="htp-circle yellow"></div>
-                <div className="htp-circle red"></div>
-            </div>
-            <h3 className="htp-space-text">
-            Green - correct<br/>
-            Yellow - partially correct<br/>
-            Red - incorrect
-            </h3>
-        </div>
-
-        let HtpScreen = <div>
-            <div className="htp-close-container">
-                {this.state.showHTP ? (
-                    <div onClick={() => this.toggleHTP()} className="htp-close-button cursor-hover">
-                        <img onClick={() => this.toggleHTP()} src="./Icons/close.svg" className="htp-close-image cursor-hover"></img>
-                    </div>
-                ) : (null)}
-            </div>
-            <div className="htp-container">
-                <img onClick={() => this.tipModify(false)} className="htp-arrow cursor-hover" src="./Icons/arrow_back.svg"></img>
-                    {this.state.tipSelect === 0 && gameTip}
-                    {this.state.tipSelect === 1 && distanceTip}
-                    {this.state.tipSelect === 2 && stopsTip}
-                    {this.state.tipSelect === 3 && colourTip}
-                <img onClick={() => this.tipModify(true)} className="htp-arrow cursor-hover" src="./Icons/arrow_forward.svg"></img>
-            </div>
-        </div>
-
         if (this.state.guesses.length == 0){
-            return HtpScreen;
+            return <HowToPlay closeHTP={this.toggleHTP} showButton={false}/>;
         }
 
         let gameScreen = <div className="answer-field-body">
@@ -1003,8 +1126,9 @@ class AnswerField extends React.Component {
         }
 
         if (this.state.showHTP){
-            return HtpScreen
+            return <HowToPlay closeHTP={this.toggleHTP} showButton={true}/>
         }
+
         return gameScreen
     }
 
