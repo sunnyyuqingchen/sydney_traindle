@@ -13,6 +13,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/system": "^7.0.2",
     "bootstrap-icons": "^1.11.3",
     "framer-motion": "^12.4.3",
     "react": "^18.3.1",

@@ -4,13 +4,14 @@ import StationTable from './stationTable';
 import AnswerField from './answerField';
 import trainNetwork from "../helper/TrainNetwork";
 import {motion} from 'framer-motion';
+import Tutorial from './Tutorial';
 
 function Game({ useNewVersion }) {
   // states for stations that the user entered, the correct station and keep track if user has won
   const [selectedStations, setSelectedStations] = useState([]);
   const [answer, setAnswer] = useState(null);
   const [hasWon, setHasWon] = React.useState(false);
-
+  const [tutorial, setTutorial] = useState(true);
   // collect the station names from graph
   const stations = Object.keys(trainNetwork);
 
@@ -102,37 +103,30 @@ function Game({ useNewVersion }) {
     return guessImages
   }
 
+
   return (
     <div className="game">
+      <div className="title">
+        <h1>
+          <img id='t-logo' src="/Logos/TfNSW_T.svg"></img> Sydney Traindle
+        </h1>
+      </div>
       {useNewVersion ? (
-        <AnswerField answerStation={answer}/>
+        <AnswerField answerStation={answer} />
       ) : (
-        answer && (
-          <>
-            {hasWon ? (
-              <div className='win-blur'>
-                <motion.div {...winAnimation} className="win-container">
-                  <div className="win-heading">
-                    <h3>Congratulations</h3>
-                  </div>
-                  <p className="win-message">
-                    You guessed {answer} in {selectedStations.length} {selectedStations.length > 1? "tries" : "try"}!
-                  </p>
-                  <div className="share-flex">
-                    <p>Share your score!</p>
-                    <img className="share-icon" src="/Icons/share.svg"></img>
-                  </div>
-                </motion.div>
-              </div>
-            ) : (
-              selectedStations.length === 9 ? (
+        tutorial ? (
+          <Tutorial tutorial={tutorial} setTutorial={setTutorial} />
+        ) : (
+          answer && (
+            <>
+              {hasWon ? (
                 <div className='win-blur'>
                   <motion.div {...winAnimation} className="win-container">
                     <div className="win-heading">
-                      <h3>Nice Try</h3>
+                      <h3>Congratulations</h3>
                     </div>
                     <p className="win-message">
-                      Try again tomorrow!
+                      You guessed {answer} in {selectedStations.length} {selectedStations.length > 1 ? "tries" : "try"}!
                     </p>
                     <div className="share-flex">
                       <p>Share your score!</p>
@@ -141,25 +135,42 @@ function Game({ useNewVersion }) {
                   </motion.div>
                 </div>
               ) : (
-                <>
-                <p className='guess-count'>Guesses Remaining: {9-selectedStations.length}</p>
-                <div className='guess-image-container'>
-                  {getGuessImages()}
-                </div>
-                <StationInput
-                  onStationSelect={handleStationSelect}
-                  suggestions={stations}
-                  answer={answer}
-                  onWin={handleWin}
-                />
-                </>
-              )
-            )}
-            <StationTable
-              selectedStations={selectedStations}
-              answer={answer}
-            />
-          </>
+                selectedStations.length === 9 ? (
+                  <div className='win-blur'>
+                    <motion.div {...winAnimation} className="win-container">
+                      <div className="win-heading">
+                        <h3>Nice Try</h3>
+                      </div>
+                      <p className="win-message">
+                        Try again tomorrow!
+                      </p>
+                      <div className="share-flex">
+                        <p>Share your score!</p>
+                        <img className="share-icon" src="/Icons/share.svg"></img>
+                      </div>
+                    </motion.div>
+                  </div>
+                ) : (
+                  <>
+                    <p className='guess-count'>Guesses Remaining: {9 - selectedStations.length}</p>
+                    <div className='guess-image-container'>
+                      {getGuessImages()}
+                    </div>
+                    <StationInput
+                      onStationSelect={handleStationSelect}
+                      suggestions={stations}
+                      answer={answer}
+                      onWin={handleWin}
+                    />
+                  </>
+                )
+              )}
+              <StationTable
+                selectedStations={selectedStations}
+                answer={answer}
+              />
+            </>
+          )
         )
       )}
     </div>
