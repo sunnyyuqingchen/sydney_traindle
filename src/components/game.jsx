@@ -5,12 +5,11 @@ import AnswerField from './answerField';
 import trainNetwork from "../helper/TrainNetwork";
 import {motion} from 'framer-motion';
 
-function Game() {
+function Game({ useNewVersion }) {
   // states for stations that the user entered, the correct station and keep track if user has won
   const [selectedStations, setSelectedStations] = useState([]);
   const [answer, setAnswer] = useState(null);
   const [hasWon, setHasWon] = React.useState(false);
-  const [useNew, setUseNew] = React.useState(false);
 
   // collect the station names from graph
   const stations = Object.keys(trainNetwork);
@@ -105,7 +104,7 @@ function Game() {
 
   return (
     <div className="game">
-      {useNew ? (
+      {useNewVersion ? (
         <AnswerField answerStation={answer}/>
       ) : (
         answer && (
