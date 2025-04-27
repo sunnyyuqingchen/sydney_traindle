@@ -5,7 +5,7 @@ import Background from './components/background';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 function App() {
-  
+
   return (
     <BrowserRouter>
       <div className="container">
