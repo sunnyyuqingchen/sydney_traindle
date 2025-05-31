@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-1, .cls-3 {
+        stroke: #cec8c0;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-4 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-3 {
+        fill: #ebece6;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" width="500" height="500"/>
+    </clipPath>
+  </defs>
+  <g class="cls-4">
+    <path class="cls-1" d="M0,27.02h47.12l72.38,72.38h93.43l83.67,83.42v152.35l-31.81,31.72h-91.93l-43.46-43.33H41.58L-3.19,278.91M-.5,380.12h27.56l25.61,24.91v51.95l17.97,17.92h269.41l31.94-31.84v-32.72l-75.4-75.17M296.59,274.73l106.4,105.39h97.51M362.73,50.95l-66.24,65.83v65.22"/>
+    <polyline class="cls-1" points="-.5 127.37 160.32 127.37 261.05 228.24"/>
+    <polyline class="cls-1" points="502 283.72 452.4 234.27 390.28 234.27 339.18 183.32 339.18 148.35 360.61 127.37 500.5 127.37"/>
+    <line class="cls-1" x1="476.95" y1="502.5" x2="426.85" y2="452.55"/>
+    <line class="cls-1" x1="472.95" y1="-1" x2="502" y2="27.97"/>
+    <ellipse class="cls-3" cx="172.64" cy="367.38" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="296.22" cy="335.83" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="296.22" cy="181.56" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="338.92" cy="166.03" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="362.73" cy="50.95" rx="5.01" ry="5"/>
+    <ellipse class="cls-3" cx="95.66" cy="75.91" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="260.05" cy="228.14" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="61.12" cy="465.53" rx="5.01" ry="4.99"/>
+    <ellipse class="cls-3" cx="356" cy="459.79" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="424.83" cy="380.91" rx="5.02" ry="5.01"/>
+    <ellipse class="cls-3" cx="427.34" cy="454.03" rx="5.02" ry="5.01"/>
+  </g>
+</svg>

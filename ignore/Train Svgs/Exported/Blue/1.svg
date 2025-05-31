@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1b289b;
+        stroke: #1b289b;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-miterlimit: 10;
+        stroke-width: .5px;
+      }
+
+      .cls-2 {
+        fill: #1e1e1e;
+        stroke: #1e1e1e;
+      }
+
+      .cls-3 {
+        fill: #363edd;
+        stroke: #363edd;
+      }
+
+      .cls-4 {
+        fill: #606060;
+      }
+
+      .cls-4, .cls-5 {
+        stroke: #3a3a3a;
+      }
+
+      .cls-5 {
+        fill: #3a3a3a;
+      }
+    </style>
+  </defs>
+  <path id="Ram_Front" data-name="Ram Front" class="cls-1" d="M62.8,12.2l-9,8c-.2.2-.3.4-.3.7l-2,6.2c0,.3.1.5.3.7l6.7,6.7c.5.5,1.4.3,1.6-.3l10.4-15.6c.2-.4-.7-1.6-1-1.9l-5.3-4.4c-.4-.4-1-.4-1.4,0h0Z"/>
+  <path id="Ram" class="cls-1" d="M34.2,37.5l-7.7-7.7s0,0,0,0v14.6c0,.2,0,.4.3.6l7.6,6.7h.1v-13.5c0-.3-.1-.5-.3-.7Z"/>
+  <path id="Head" class="cls-5" d="M65,14c0,1.2-.5,2.4-1.4,3.2l-2.9,2.7c-3,2.7-7.8.6-7.8-3.5h0c0-1.3.6-2.6,1.5-3.4l2.8-2.3c2.9-2.8,7.7-.7,7.7,3.3h0Z"/>
+  <path id="Ram-2" class="cls-3" d="M57,29.4l11.7-11.7c.6-.6,1.7-.2,1.7.7v6.2c0,.3-.1.5-.3.7l-10.5,10.5c-1.2,1.2-3.2.3-3.2-1.3v-3.7c0-.5.2-1,.5-1.3h0Z"/>
+  <path id="Body" class="cls-3" d="M34.8,37.1l24-24c.6-.6,1.7-.2,1.7.7v14.2c0,.3-.1.5-.3.7l-24,24c-.6.6-1.7.2-1.7-.7v-14.2c0-.3.1-.5.3-.7Z"/>
+  <path id="Body_Line" data-name="Body Line" class="cls-5" d="M34.7,51.3l25-25c.3-.3.9,0,.9.4v7.6c0,.1,0,.3-.2.4l-25.5,25.5c-.1.1-.4,0-.4-.2v-8.3c0-.1,0-.3.2-.4h0Z"/>
+  <ellipse id="Wheel_1" data-name="Wheel 1" class="cls-4" cx="60" cy="33.4" rx="3.2" ry="6.5"/>
+  <ellipse id="Wheel_2" data-name="Wheel 2" class="cls-4" cx="50" cy="43.6" rx="3" ry="6.5"/>
+  <ellipse id="Wheel_3" data-name="Wheel 3" class="cls-4" cx="40" cy="53.4" rx="3.2" ry="6.5"/>
+  <path id="Body-2" class="cls-3" d="M59.6,14.1l-25.1,23.2s-6.6-5.3-7.9-7.3c0-.1,0-.2,0-.3L50.9,5.8c.3-.3.9-.4,1.3,0l7.3,6.8c.5.4.5,1.1,0,1.5h0Z"/>
+  <path id="Seat" class="cls-3" d="M37.5,16.3l-4.3,4.3,6,6,5-5-5.3-5.3c-.4-.4-1-.4-1.4,0h0Z"/>
+  <path id="Seat-2" class="cls-1" d="M32.5,24.5l5.8,5.8c0,0,.2,0,.2,0v-4.4c0-.2,0-.5-.2-.6l-4.3-4.3c-.5-.5-1.5-.2-1.5.6v2.9Z"/>
+  <path id="Seat_Back" data-name="Seat Back" class="cls-1" d="M37.9,32.1l-1.4,1.4c-.2.2-.5,0-.5-.2v-.2l2.5-2.5h1c0,0-1.5,1.5-1.6,1.6h0Z"/>
+  <path id="Seat-3" class="cls-1" d="M44.5,25.5l-5.8,5.8c0,0-.2,0-.2,0v-5.4c0-.2,0-.5.2-.6l4.3-4.3c.5-.5,1.5-.2,1.5.6v3.9Z"/>
+  <path class="cls-5" d="M50.5,13.9h0c-.5,0-1-.4-1-1v-3h2v3c0,.6-.5,1-1,1Z"/>
+  <rect id="Exhaust_Tip" data-name="Exhaust Tip" class="cls-5" x="49" y="7.9" width="3" height="2" rx=".7" ry=".7"/>
+  <path id="Seat_Back-2" data-name="Seat Back-2" class="cls-1" d="M34.6,31.9l-4.9-4.9c-.2-.2,0-.5.2-.5h.2l6,6v1c0,0-1.5-1.5-1.6-1.6,0,0,0,0,0,0Z"/>
+  <path id="Body_Line-2" data-name="Body Line-2" class="cls-5" d="M26.5,52.5l7.5,7.5c.2.2.5,0,.5-.2v-8.2c0,0,0-.1,0-.2l-7.9-7.9v9h0Z"/>
+  <path class="cls-5" d="M34,59.8c0,.3.2.5.5.5s.5-.2.5-.5,0-4.5-.2-4.5-.8,4.2-.8,4.5Z"/>
+  <path id="Body_Line-3" data-name="Body Line-3" class="cls-2" d="M29.2,54.1l.4.4c.3.3.9,0,.9-.4v-.2c0-.1,0-.3-.1-.4l-.4-.4c-.3-.3-.9,0-.9.4v.2c0,.1,0,.3.1.4Z"/>
+</svg>

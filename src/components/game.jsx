@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import StationInput from './stationInput';
 import StationTable from './stationTable';
-import AnswerField from './answerField';
+import MobileLayout from './mobileLayout';
 import trainNetwork from "../helper/TrainNetwork";
 import {motion} from 'framer-motion';
 import Tutorial from './Tutorial';
@@ -112,7 +112,7 @@ function Game({ useNewVersion }) {
         </h1>
       </div>
       {useNewVersion ? (
-        <AnswerField answerStation={answer} />
+        <MobileLayout answerStation={answer} />
       ) : (
         tutorial ? (
           <Tutorial tutorial={tutorial} setTutorial={setTutorial} />
