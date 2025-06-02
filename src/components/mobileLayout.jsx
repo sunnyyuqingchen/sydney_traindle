@@ -6,6 +6,7 @@ import { Guess, GuessesLeft } from './guesses';
 import Timer from './timer';
 import SearchBox from './searchBox';
 import MobileContext from './mobileContext';
+import Keyboard from './keyboard';
 
 //takes props: 
 //  Function closeHTP = a function that changes the a state in the parent to control visibility
@@ -542,7 +543,7 @@ class MobileLayout extends React.Component {
                     )
                 }
             </div>
-            <div className="answer-footer">
+            {/* <div className="answer-footer">
                 <div className="footer-button-container">
                     <div onClick={() => this.toggleMap()} className="cursor-hover footer-button">
                         <img onClick={() => this.toggleMap()} className="cursor-hover"src="./Icons/pin.svg"></img>
@@ -554,7 +555,7 @@ class MobileLayout extends React.Component {
                 <GuessesLeft/>
                 <div>
                 </div> 
-            </div>
+            </div> */}
         </div>
 
         //display wins creen
@@ -602,6 +603,7 @@ class MobileLayout extends React.Component {
                 <h1 className='timer'><span>Timer</span><Timer classProp="timer-number" ref={this.timerRef}/></h1>
                 {/*Changes what is rendered if no guesses have been made, htp is open, or win/lose*/}
                 {this.screenSelect()}
+                
                 {this.state.showSearchbar ? (
                     <SearchBox 
                         submitGuess={this.submitGuess} 
@@ -609,7 +611,9 @@ class MobileLayout extends React.Component {
                         dummyText="Station Name"
                         suggestions={stations}
                     />
-                ) : (null)}
+                ) : (null)}  
+                
+                
             </div>
         </MobileContext.Provider>
     }
