@@ -117,6 +117,11 @@ class SearchBox extends React.Component {
             this.setState({ value: newValue }, () => {
                 this.filterSuggestions(newValue);
             });
+        } else if (key === ' ') {
+            const newValue = value + ' ';
+            this.setState({ value: newValue }, () => {
+              this.filterSuggestions(newValue);
+            });
         } else {
             const newValue = value + key.toLowerCase();
             this.setState({ value: newValue }, () => {
@@ -193,7 +198,7 @@ class SearchBox extends React.Component {
         return (
             <div className="single-suggestion-container">
               {showSuggestions && value && filteredSuggestions.length > 0 ? (
-                <div className="single-suggestion">
+                <div className="single-suggestion" onClick={() => this.handleClick(filteredSuggestions[0])}>
                   {filteredSuggestions[0]}
                 </div>
               ) : null}
@@ -220,7 +225,11 @@ class SearchBox extends React.Component {
                     </div>
                     <GuessesLeft/>
                 </div>
-                <Keyboard onKeyPress={this.handleKeyPress} />
+                <Keyboard 
+                    onKeyPress={this.handleKeyPress}
+                    onLegendClick={this.props.onLegendClick}
+                    onMapClick={this.props.onMapClick}
+                />
             </div>
         );
     }

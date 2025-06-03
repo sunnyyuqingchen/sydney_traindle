@@ -611,8 +611,7 @@ class MobileLayout extends React.Component {
                         dummyText="Station Name"
                         suggestions={stations}
                     />
-                ) : (null)}  
-                
+                ) : (null)}                   
                 
             </div>
         </MobileContext.Provider>

@@ -4,25 +4,25 @@ import styled from 'styled-components';
 const KeyboardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 15px;
   border-radius: 8px;
   margin-top: 10px;
+  margin-bottom: 30px;
 `;
 
 const KeyboardRow = styled.div`
   display: flex;
   justify-content: center;
-  gap: 6px;
+  gap: 10px;
 `;
 
 const Key = styled.button`
-  min-width: 30px;
+  min-width: 40px;
   height: 50px;
   border: none;
   border-radius: 5px;
   background: #f1f1f1;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,19 +38,35 @@ const Key = styled.button`
   }
   
   &.enter {
-    min-width: 70px;
-    font-size: 14px;
+    min-width: 65px;
+    font-weight: bold;
+    font-size: 16px;
   }
   
   &.backspace {
-    min-width: 70px;
+    min-width: 65px;
+  }
+
+  &.spacebar {
+    flex-grow: 1;
+    max-width: 250px;
+    background: #f1f1f1;
+    height: 44px;
+    margin-bottom: 40px;
   }
 `;
 
-function Keyboard({ onKeyPress }) {
-  const topRow = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
-  const middleRow = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
-  const bottomRow = ['Z', 'X', 'C', 'V', 'B', 'N', 'M'];
+const BottomButtonRow = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+`;
+
+function Keyboard({onKeyPress, onLegendClick, onMapClick}) {
+  const topRow = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
+  const middleRow = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
+  const bottomRow = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
   const handleKeyClick = (key) => {
     onKeyPress(key);
@@ -77,6 +93,29 @@ function Keyboard({ onKeyPress }) {
           <img src="/Icons/Delete.svg" alt="Backspace" width={24} />
         </Key>
       </KeyboardRow>
+
+      <BottomButtonRow>
+        <div className='footer-button-container'>
+          <div className="cursor-hover" onClick={onLegendClick}>
+            <img src="./Icons/Legend.svg" width="35" height="35"></img>
+          </div>
+          <div>
+            Legend
+          </div>
+        </div>
+        <Key className="spacebar" onClick={() => handleKeyClick(' ')}>
+          &nbsp;
+        </Key>
+        <div className='footer-button-container'>
+          <div className="cursor-hover footer-button" onClick={onMapClick}>
+            <img src="./Icons/pin.svg"></img>
+          </div>
+          <div>
+            Map
+          </div>
+        </div>
+      </BottomButtonRow>
+
     </KeyboardContainer>
   );
 }
