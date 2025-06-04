@@ -21,8 +21,8 @@ const InputWithSuggestion = styled.div`
 `;
 
 const SingleSuggestionContainer = styled.div`
-    margin-top: 6px;
-    min-height: 30px;
+    margin-top: 5px;
+    min-height: 35px;
     display: flex;
     align-items: center;
 `;
