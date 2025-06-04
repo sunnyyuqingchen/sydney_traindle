@@ -46,6 +46,16 @@ const Key = styled.button`
     font-weight: bold;
     font-size: 16px;
   }
+
+    &.disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
   
   &.backspace {
     min-width: 65px;
@@ -105,7 +115,7 @@ const Text = styled.div`
   margin-top: 4px;
 `;
 
-function Keyboard({onKeyPress, onLegendClick, onMapClick}) {
+function Keyboard({onKeyPress, onLegendClick, onMapClick, disableEnter}) {
   const topRow = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
   const middleRow = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
   const bottomRow = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
@@ -127,7 +137,13 @@ function Keyboard({onKeyPress, onLegendClick, onMapClick}) {
         ))}
       </KeyboardRow>
       <KeyboardRow>
-        <Key className="enter" onClick={() => handleKeyClick('Enter')}>Enter</Key>
+      <Key 
+        className={`enter ${disableEnter ? 'disabled' : ''}`}
+        onClick={() => !disableEnter && handleKeyClick('Enter')}
+        disabled={disableEnter}
+      >
+        Enter
+      </Key>
         {bottomRow.map(key => (
           <Key key={key} onClick={() => handleKeyClick(key)}>{key}</Key>
         ))}

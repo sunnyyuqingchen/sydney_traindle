@@ -209,7 +209,6 @@ class SearchBox extends React.PureComponent {
                 inputMode="none"
                 onChange={() => {}}
                 onTouchStart={(e) => {
-                    // allow mobile to focus without showing keyboard
                     e.preventDefault();
                     this.inputRef.focus();
                     setTimeout(() => {
@@ -225,6 +224,7 @@ class SearchBox extends React.PureComponent {
             onKeyPress={this.handleKeyPress}
             onLegendClick={this.props.onLegendClick}
             onMapClick={this.props.onMapClick}
+            disableEnter={this.state.filteredSuggestions.length === 0}
         />
         </AutocompleteContainer>
     );
