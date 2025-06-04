@@ -22,51 +22,54 @@ const InputWithSuggestion = styled.div`
 
 const SingleSuggestionContainer = styled.div`
     margin-top: 5px;
-    min-height: 35px;
+    height: 40px;
     display: flex;
     align-items: center;
 `;
 
-const SingleSuggestion = styled.div`
-    width: 100%;
-    height: 22px;
-    margin-left: 20px;
-    background: #f1f1f1;
-    border-radius: 5px;
-    font-size: 20px;
-    padding: 8px 8px 12px 11px;
-
-    &:hover {
-        background-color: #f6891f;
-        cursor: pointer;
-    }
-`;
-
 const StyledInput = styled.input.attrs({
     tabIndex: -1,
-    readOnly: true
+    readOnly: true,
   })`
     margin: 25px 0px 0px 20px;
-    width: 330px;
-    height: 40px;
-    border: 0px;
+    width: 300px;
     background-color: #d9d9d9;
+    border: none;
     border-radius: 5px;
     font-size: 16pt;
-    color: #000000;
-    outline: 0;
-    text-indent: 10px;
+    color: #000;
+    outline: none;
+    padding: 8px 10px;
     caret-color: black;
-
+  
     -webkit-user-select: none;
     user-select: none;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
-
+  
     &::placeholder {
-        color: #fdfdfc;
+      color: #fdfdfc;
     }
-`;
+  `;
+  
+  const SingleSuggestion = styled.div`
+    margin-left: 20px;
+    width: 300px;
+    height: 25px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    font-size: 15pt;
+    color: #000;
+    padding: 8px 10px;
+  
+    display: flex;
+    align-items: center;
+  
+    &:hover {
+      background-color: #f6891f;
+      cursor: pointer;
+    }
+  `;
 
 class SearchBox extends React.PureComponent {
     constructor(props) {
@@ -135,6 +138,14 @@ class SearchBox extends React.PureComponent {
                 showSuggestions: true
             });
         }
+    };
+
+    handleClick = (suggestion) => {
+        this.props.submitGuess(suggestion);
+        this.setState({
+            value: '',
+            showSuggestions: false
+        });
     };
 
     handleSuggestionClick = () => {
