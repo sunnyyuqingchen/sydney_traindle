@@ -50,7 +50,6 @@ const Key = styled.button`
   &.spacebar {
     flex-grow: 1;
     max-width: 250px;
-    background: #f1f1f1;
     height: 44px;
     margin-bottom: 40px;
   }

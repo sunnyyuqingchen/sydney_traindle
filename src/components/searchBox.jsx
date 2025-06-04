@@ -1,6 +1,45 @@
 import React from "react";
+import styled from "styled-components";
 import Keyboard from "./keyboard";
 import { Guess, GuessesLeft } from './guesses';
+
+const AutocompleteContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+const Autocomplete = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+const InputWithSuggestion = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`;
+
+const SingleSuggestionContainer = styled.div`
+  min-height: 30px; /* keeps the space reserved */
+  display: flex;
+  align-items: center;
+`;
+
+const SingleSuggestion = styled.div`
+  width: 100%;
+  height: 22px;
+  margin-left: 20px;
+  background: #f1f1f1;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 8px 8px 12px 11px;
+
+  &:hover {
+    background-color: #f6891f;
+    cursor: pointer;
+  }
+`;
 
 class SearchBox extends React.Component {
     constructor(props) {
@@ -18,23 +57,6 @@ class SearchBox extends React.Component {
         const userInput = e.target.value;
         this.filterSuggestions(userInput);
     };
-
-    // old suggestions showign multiple.
-    // filterSuggestions = (userInput) => {
-    //     const { suggestions } = this.props;
-
-    //     const filtered = suggestions.filter(
-    //         (suggestion) =>
-    //             suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
-    //     );
-
-    //     this.setState({
-    //         value: userInput,
-    //         filteredSuggestions: filtered,
-    //         activeSuggestionIndex: 0,
-    //         showSuggestions: true
-    //     });
-    // };
 
     filterSuggestions = (userInput) => {
         const { suggestions } = this.props;
@@ -160,78 +182,45 @@ class SearchBox extends React.Component {
         }
     };
 
-    // old
-    // renderSuggestions = () => {
-    //     const { showSuggestions, value, filteredSuggestions, activeSuggestionIndex } = this.state;
-        
-    //     if (showSuggestions && value) {
-    //         if (filteredSuggestions.length) {
-    //             return (
-    //                 <ul className="suggestions">
-    //                     {filteredSuggestions.map((suggestion, index) => (
-    //                         <li
-    //                             key={suggestion}
-    //                             ref={(el) => (this.suggestionRefs[index] = el)}
-    //                             className={
-    //                                 index === activeSuggestionIndex
-    //                                     ? 'suggestion-active'
-    //                                     : 'suggestion-unactive'
-    //                             }
-    //                             onMouseEnter={() => this.handleHover(index)}
-    //                             onClick={() => this.handleClick(suggestion)}
-    //                         >
-    //                             {suggestion}
-    //                         </li>
-    //                     ))}
-    //                 </ul>
-    //             );
-    //         } else {
-    //             return <div className="no-suggestions">No matches</div>;
-    //         }
-    //     }
-    //     return null;
-    // };
-
     renderSuggestions = () => {
         const { showSuggestions, value, filteredSuggestions } = this.state;
-        
+      
         return (
-            <div className="single-suggestion-container">
-              {showSuggestions && value && filteredSuggestions.length > 0 ? (
-                <div className="single-suggestion" onClick={() => this.handleClick(filteredSuggestions[0])}>
-                  {filteredSuggestions[0]}
-                </div>
-              ) : null}
-            </div>
-          );
-
-    };
-
-    render() {
-        return (
-            <div className="autocomplete-container">
-                <div className="autocomplete">
-                    <div className="input-with-suggestion">
-                        <input
-                        onChange={this.handleChange}
-                        value={this.state.value}
-                        onKeyDown={this.handleKeyDown}
-                        className={this.props.classProp}
-                        placeholder={this.props.dummyText}
-                        onBlur={this.handleBlur}
-                        autoComplete="off"
-                        />
-                        {this.renderSuggestions()}
-                    </div>
-                    <GuessesLeft/>
-                </div>
-                <Keyboard 
-                    onKeyPress={this.handleKeyPress}
-                    onLegendClick={this.props.onLegendClick}
-                    onMapClick={this.props.onMapClick}
-                />
-            </div>
+          <SingleSuggestionContainer>
+            {showSuggestions && value && filteredSuggestions.length > 0 ? (
+              <SingleSuggestion onClick={() => this.handleClick(filteredSuggestions[0])}>
+                {filteredSuggestions[0]}
+              </SingleSuggestion>
+            ) : null}
+          </SingleSuggestionContainer>
         );
+      };
+      
+    render() {
+    return (
+        <AutocompleteContainer>
+        <Autocomplete>
+            <InputWithSuggestion>
+            <input
+                onChange={this.handleChange}
+                value={this.state.value}
+                onKeyDown={this.handleKeyDown}
+                className={this.props.classProp}
+                placeholder={this.props.dummyText}
+                onBlur={this.handleBlur}
+                autoComplete="off"
+            />
+            {this.renderSuggestions()}
+            </InputWithSuggestion>
+            <GuessesLeft />
+        </Autocomplete>
+        <Keyboard 
+            onKeyPress={this.handleKeyPress}
+            onLegendClick={this.props.onLegendClick}
+            onMapClick={this.props.onMapClick}
+        />
+        </AutocompleteContainer>
+    );
     }
 }
 

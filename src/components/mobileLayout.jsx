@@ -610,6 +610,8 @@ class MobileLayout extends React.Component {
                         classProp="answer-field-search" 
                         dummyText="Station Name"
                         suggestions={stations}
+                        onMapClick={() => this.toggleMap()}
+                        onLegendClick={() => this.toggleLegend()}
                     />
                 ) : (null)}                   
                 
