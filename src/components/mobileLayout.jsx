@@ -542,19 +542,6 @@ class MobileLayout extends React.Component {
                     )
                 }
             </div>
-            <div className="answer-footer">
-                <div className="footer-button-container">
-                    <div onClick={() => this.toggleMap()} className="cursor-hover footer-button">
-                        <img onClick={() => this.toggleMap()} className="cursor-hover"src="./Icons/pin.svg"></img>
-                    </div>
-                    <div onClick={() => this.toggleHTP()} className="footer-button cursor-hover">
-                        <img onClick={() => this.toggleHTP()} className="cursor-hover" src="./Icons/help.svg"></img>
-                    </div>
-                </div>
-                <GuessesLeft/>
-                <div>
-                </div> 
-            </div>
         </div>
 
         //display wins creen
@@ -602,14 +589,18 @@ class MobileLayout extends React.Component {
                 <h1 className='timer'><span>Timer</span><Timer classProp="timer-number" ref={this.timerRef}/></h1>
                 {/*Changes what is rendered if no guesses have been made, htp is open, or win/lose*/}
                 {this.screenSelect()}
+                
                 {this.state.showSearchbar ? (
                     <SearchBox 
                         submitGuess={this.submitGuess} 
                         classProp="answer-field-search" 
                         dummyText="Station Name"
                         suggestions={stations}
+                        onMapClick={() => this.toggleMap()}
+                        onLegendClick={() => this.toggleLegend()}
                     />
-                ) : (null)}
+                ) : (null)}                   
+                
             </div>
         </MobileContext.Provider>
     }
