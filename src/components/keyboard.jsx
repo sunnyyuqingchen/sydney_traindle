@@ -17,6 +17,10 @@ const KeyboardRow = styled.div`
 `;
 
 const Key = styled.button`
+  color: black;
+  user-select: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   min-width: 40px;
   height: 50px;
   border: none;
@@ -156,4 +160,4 @@ function Keyboard({onKeyPress, onLegendClick, onMapClick}) {
   );
 }
 
-export default Keyboard;
+export default React.memo(Keyboard);

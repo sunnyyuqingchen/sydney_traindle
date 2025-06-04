@@ -1,47 +1,74 @@
 import React from "react";
 import styled from "styled-components";
-import Keyboard from "./keyboard";
+import Keyboard from "./Keyboard";
 import { Guess, GuessesLeft } from './guesses';
 
 const AutocompleteContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 `;
 
 const Autocomplete = styled.div`
-  display: flex;
-  width: 100%;
+    display: flex;
+    width: 100%;
 `;
 
 const InputWithSuggestion = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 `;
 
 const SingleSuggestionContainer = styled.div`
-  min-height: 30px; /* keeps the space reserved */
-  display: flex;
-  align-items: center;
+    margin-top: 6px;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
 `;
 
 const SingleSuggestion = styled.div`
-  width: 100%;
-  height: 22px;
-  margin-left: 20px;
-  background: #f1f1f1;
-  border-radius: 5px;
-  font-size: 20px;
-  padding: 8px 8px 12px 11px;
+    width: 100%;
+    height: 22px;
+    margin-left: 20px;
+    background: #f1f1f1;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 8px 8px 12px 11px;
 
-  &:hover {
-    background-color: #f6891f;
-    cursor: pointer;
-  }
+    &:hover {
+        background-color: #f6891f;
+        cursor: pointer;
+    }
 `;
 
-class SearchBox extends React.Component {
+const StyledInput = styled.input.attrs({
+    tabIndex: -1,
+    readOnly: true
+  })`
+    margin: 25px 0px 0px 20px;
+    width: 330px;
+    height: 40px;
+    border: 0px;
+    background-color: #d9d9d9;
+    border-radius: 5px;
+    font-size: 16pt;
+    color: #000000;
+    outline: 0;
+    text-indent: 10px;
+    caret-color: black;
+
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+
+    &::placeholder {
+        color: #fdfdfc;
+    }
+`;
+
+class SearchBox extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -53,72 +80,18 @@ class SearchBox extends React.Component {
         this.suggestionRefs = [];
     }
 
-    handleChange = (e) => {
-        const userInput = e.target.value;
-        this.filterSuggestions(userInput);
-    };
-
-    filterSuggestions = (userInput) => {
-        const { suggestions } = this.props;
-        
-        // First try to find exact matches that start with the input
-        const exactMatches = suggestions.filter(suggestion => 
-          suggestion.toLowerCase().startsWith(userInput.toLowerCase())
-        );
-        
-        // If no exact matches, fall back to contains matches
-        const containsMatches = suggestions.filter(suggestion =>
-          suggestion.toLowerCase().includes(userInput.toLowerCase())
-        );
-        
-        // Use exact matches if available, otherwise use contains matches
-        const filtered = exactMatches.length > 0 ? exactMatches : containsMatches;
-        
-        // Only show the first match
-        const bestMatch = filtered.length > 0 ? [filtered[0]] : [];
+    getFilteredSuggestions = (userInput) => {
+        if (!userInput) return [];
       
-        this.setState({
-          value: userInput,
-          filteredSuggestions: bestMatch,
-          activeSuggestionIndex: 0,
-          showSuggestions: true
-        });
+        const lcInput = userInput.toLowerCase();
+        const { suggestions } = this.props;
+      
+        let firstMatch = suggestions.find(s => s.toLowerCase().startsWith(lcInput));
+        if (firstMatch) return [firstMatch];
+      
+        firstMatch = suggestions.find(s => s.toLowerCase().includes(lcInput));
+        return firstMatch ? [firstMatch] : [];
       };
-
-    handleKeyDown = (e) => {
-        const { filteredSuggestions, activeSuggestionIndex, value } = this.state;
-
-        if (e.key === 'Enter') {
-            if (value === '' || filteredSuggestions.length === 0) return;
-
-            const selectedGuess = filteredSuggestions[activeSuggestionIndex];
-            this.props.submitGuess(selectedGuess);
-            this.setState({
-                value: "",
-                showSuggestions: false
-            });
-
-        } else if (e.key === 'ArrowUp') {
-            e.preventDefault();
-            if (activeSuggestionIndex === 0) return;
-            const newIndex = activeSuggestionIndex - 1;
-            this.setState({ activeSuggestionIndex: newIndex });
-            this.scrollToActiveSuggestion(newIndex);
-
-        } else if (e.key === 'ArrowDown') {
-            e.preventDefault();
-            if (activeSuggestionIndex === filteredSuggestions.length - 1) return;
-            const newIndex = activeSuggestionIndex + 1;
-            this.setState({ activeSuggestionIndex: newIndex });
-            this.scrollToActiveSuggestion(newIndex);
-
-        } else if (e.key === 'Tab') {
-            e.preventDefault();
-            const newIndex = activeSuggestionIndex === filteredSuggestions.length - 1 ? 0 : activeSuggestionIndex + 1;
-            this.setState({ activeSuggestionIndex: newIndex });
-            this.scrollToActiveSuggestion(newIndex);
-        }
-    };
 
     handleKeyPress = (key) => {
         const { value, filteredSuggestions, activeSuggestionIndex } = this.state;
@@ -136,50 +109,43 @@ class SearchBox extends React.Component {
             }
         } else if (key === 'Backspace') {
             const newValue = value.slice(0, -1);
-            this.setState({ value: newValue }, () => {
-                this.filterSuggestions(newValue);
+            const filteredSuggestions = this.getFilteredSuggestions(newValue);
+            this.setState({
+                value: newValue,
+                filteredSuggestions,
+                activeSuggestionIndex: 0,
+                showSuggestions: true
             });
         } else if (key === ' ') {
             const newValue = value + ' ';
-            this.setState({ value: newValue }, () => {
-              this.filterSuggestions(newValue);
+            const filteredSuggestions = this.getFilteredSuggestions(newValue);
+            this.setState({
+                value: newValue,
+                filteredSuggestions,
+                activeSuggestionIndex: 0,
+                showSuggestions: true
             });
         } else {
             const newValue = value + key.toLowerCase();
-            this.setState({ value: newValue }, () => {
-                this.filterSuggestions(newValue);
+            const filteredSuggestions = this.getFilteredSuggestions(newValue);
+            this.setState({
+                value: newValue,
+                filteredSuggestions,
+                activeSuggestionIndex: 0,
+                showSuggestions: true
             });
         }
     };
 
-    handleClick = (suggestion) => {
-        this.props.submitGuess(suggestion);
-        this.setState({
-            value: '',
-            showSuggestions: false
-        });
-    };
+    handleSuggestionClick = () => {
+        const { filteredSuggestions } = this.state;
+        if (filteredSuggestions[0]) {
+          this.handleClick(filteredSuggestions[0]);
+        }
+      };
 
     handleHover = (index) => {
         this.setState({ activeSuggestionIndex: index });
-    };
-
-    handleBlur = () => {
-        setTimeout(() => {
-            this.setState({
-                showSuggestions: false,
-                value: ''
-            });
-        }, 150);
-    };
-
-    scrollToActiveSuggestion = (index) => {
-        if (this.suggestionRefs[index]) {
-            this.suggestionRefs[index].scrollIntoView({
-                block: 'nearest',
-                inline: 'nearest'
-            });
-        }
     };
 
     renderSuggestions = () => {
@@ -188,7 +154,7 @@ class SearchBox extends React.Component {
         return (
           <SingleSuggestionContainer>
             {showSuggestions && value && filteredSuggestions.length > 0 ? (
-              <SingleSuggestion onClick={() => this.handleClick(filteredSuggestions[0])}>
+              <SingleSuggestion onClick={this.handleSuggestionClick}>
                 {filteredSuggestions[0]}
               </SingleSuggestion>
             ) : null}
@@ -201,15 +167,12 @@ class SearchBox extends React.Component {
         <AutocompleteContainer>
         <Autocomplete>
             <InputWithSuggestion>
-            <input
-                onChange={this.handleChange}
+            <StyledInput
                 value={this.state.value}
-                onKeyDown={this.handleKeyDown}
-                className={this.props.classProp}
                 placeholder={this.props.dummyText}
-                onBlur={this.handleBlur}
                 autoComplete="off"
-            />
+                inputMode="none"
+                />
             {this.renderSuggestions()}
             </InputWithSuggestion>
             <GuessesLeft />
