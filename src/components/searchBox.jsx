@@ -208,6 +208,14 @@ class SearchBox extends React.PureComponent {
                 autoComplete="off"
                 inputMode="none"
                 onChange={() => {}}
+                onTouchStart={(e) => {
+                    // allow mobile to focus without showing keyboard
+                    e.preventDefault();
+                    this.inputRef.focus();
+                    setTimeout(() => {
+                      this.inputRef.setSelectionRange(this.inputRef.selectionStart, this.inputRef.selectionEnd);
+                    }, 0);
+                  }}
                 />
             {this.renderSuggestions()}
             </InputWithSuggestion>
