@@ -93,9 +93,9 @@ class SearchBox extends React.PureComponent {
       
         firstMatch = suggestions.find(s => s.toLowerCase().includes(lcInput));
         return firstMatch ? [firstMatch] : [];
-      };
+    };
 
-      handleKeyPress = (key) => {
+    handleKeyPress = (key) => {
         const input = this.inputRef;
         if (!input) return;
       
@@ -107,48 +107,48 @@ class SearchBox extends React.PureComponent {
         let newCursorPos = start;
       
         if (key === 'Enter') {
-          const selectedGuess = this.state.filteredSuggestions[this.state.activeSuggestionIndex] || value;
-          if (selectedGuess) {
-            this.props.submitGuess(selectedGuess);
-            this.setState({
-              value: '',
-              showSuggestions: false,
-              filteredSuggestions: [],
-              activeSuggestionIndex: 0
-            });
-          }
-          return;
+            const selectedGuess = this.state.filteredSuggestions[this.state.activeSuggestionIndex];
+            if (selectedGuess) {
+                this.props.submitGuess(selectedGuess);
+                this.setState({
+                value: '',
+                showSuggestions: false,
+                filteredSuggestions: [],
+                activeSuggestionIndex: 0
+                });
+            }
+            return;
         }
       
         if (key === 'Backspace') {
-          if (start === end && start > 0) {
-            newValue = value.slice(0, start - 1) + value.slice(end);
-            newCursorPos = start - 1;
-          } else if (start !== end) {
-            newValue = value.slice(0, start) + value.slice(end);
-            newCursorPos = start;
-          }
+            if (start === end && start > 0) {
+                newValue = value.slice(0, start - 1) + value.slice(end);
+                newCursorPos = start - 1;
+            } else if (start !== end) {
+                newValue = value.slice(0, start) + value.slice(end);
+                newCursorPos = start;
+            }
         } else {
-          newValue = value.slice(0, start) + key + value.slice(end);
-          newCursorPos = start + key.length;
+            newValue = value.slice(0, start) + key + value.slice(end);
+            newCursorPos = start + key.length;
         }
       
         const filteredSuggestions = this.getFilteredSuggestions(newValue);
       
         this.setState(prev => {
             if (
-              prev.filteredSuggestions === filteredSuggestions &&
-              prev.activeSuggestionIndex === 0 &&
-              prev.showSuggestions === true
+                prev.filteredSuggestions === filteredSuggestions &&
+                prev.activeSuggestionIndex === 0 &&
+                prev.showSuggestions === true
             ) {
-              return null;
+                return null;
             }
             return {
-              filteredSuggestions,
-              activeSuggestionIndex: 0,
-              showSuggestions: true
+                filteredSuggestions,
+                activeSuggestionIndex: 0,
+                showSuggestions: true
             };
-          });
+        });
       
         this.updateInputValue(newValue, newCursorPos);
         this.inputRef?.focus();
@@ -165,7 +165,7 @@ class SearchBox extends React.PureComponent {
     handleSuggestionClick = () => {
         const { filteredSuggestions } = this.state;
         if (filteredSuggestions[0]) {
-          this.handleClick(filteredSuggestions[0]);
+            this.handleClick(filteredSuggestions[0]);
         }
       };
 
@@ -176,9 +176,9 @@ class SearchBox extends React.PureComponent {
     updateInputValue = (newValue, newCursorPos) => {
         this.setState({ value: newValue }, () => {
           requestAnimationFrame(() => {
-            this.inputRef.focus();
-            this.inputRef.setSelectionRange(newCursorPos, newCursorPos);
-          });
+                this.inputRef.focus();
+                this.inputRef.setSelectionRange(newCursorPos, newCursorPos);
+            });
         });
     };
 
@@ -186,15 +186,15 @@ class SearchBox extends React.PureComponent {
         const { showSuggestions, value, filteredSuggestions } = this.state;
       
         return (
-          <SingleSuggestionContainer>
-            {showSuggestions && value && filteredSuggestions.length > 0 ? (
-              <SingleSuggestion onClick={this.handleSuggestionClick}>
-                {filteredSuggestions[0]}
-              </SingleSuggestion>
-            ) : null}
-          </SingleSuggestionContainer>
+            <SingleSuggestionContainer>
+                {showSuggestions && value && filteredSuggestions.length > 0 ? (
+                <SingleSuggestion onClick={this.handleSuggestionClick}>
+                    {filteredSuggestions[0]}
+                </SingleSuggestion>
+                ) : null}
+            </SingleSuggestionContainer>
         );
-      };
+    };
       
     render() {
     return (
@@ -213,10 +213,10 @@ class SearchBox extends React.PureComponent {
                     e.preventDefault();
                     this.inputRef.focus();
                     setTimeout(() => {
-                      this.inputRef.setSelectionRange(this.inputRef.selectionStart, this.inputRef.selectionEnd);
+                        this.inputRef.setSelectionRange(this.inputRef.selectionStart, this.inputRef.selectionEnd);
                     }, 0);
-                  }}
-                />
+                }}
+            />
             {this.renderSuggestions()}
             </InputWithSuggestion>
             <GuessesLeft />
