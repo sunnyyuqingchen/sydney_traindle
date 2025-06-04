@@ -95,52 +95,62 @@ class SearchBox extends React.PureComponent {
         return firstMatch ? [firstMatch] : [];
       };
 
-    handleKeyPress = (key) => {
-        const { value, filteredSuggestions, activeSuggestionIndex } = this.state;
-
+      handleKeyPress = (key) => {
+        const input = this.inputRef;
+        if (!input) return;
+      
+        const { value } = this.state;
+        const start = input.selectionStart;
+        const end = input.selectionEnd;
+      
+        let newValue = value;
+        let newCursorPos = start;
+      
         if (key === 'Enter') {
-            if (!filteredSuggestions.length || !value.trim()) {
-                return;
-            }
-
-            const selectedGuess = filteredSuggestions[activeSuggestionIndex] || value;
-            if (selectedGuess) {
-                this.props.submitGuess(selectedGuess);
-                this.setState({
-                    value: "",
-                    showSuggestions: false,
-                    filteredSuggestions: [],
-                    activeSuggestionIndex: 0
-                });
-            }
-        } else if (key === 'Backspace') {
-            const newValue = value.slice(0, -1);
-            const filteredSuggestions = this.getFilteredSuggestions(newValue);
+          const selectedGuess = this.state.filteredSuggestions[this.state.activeSuggestionIndex] || value;
+          if (selectedGuess) {
+            this.props.submitGuess(selectedGuess);
             this.setState({
-                value: newValue,
-                filteredSuggestions,
-                activeSuggestionIndex: 0,
-                showSuggestions: true
+              value: '',
+              showSuggestions: false,
+              filteredSuggestions: [],
+              activeSuggestionIndex: 0
             });
-        } else if (key === ' ') {
-            const newValue = value + ' ';
-            const filteredSuggestions = this.getFilteredSuggestions(newValue);
-            this.setState({
-                value: newValue,
-                filteredSuggestions,
-                activeSuggestionIndex: 0,
-                showSuggestions: true
-            });
-        } else {
-            const newValue = value + key.toLowerCase();
-            const filteredSuggestions = this.getFilteredSuggestions(newValue);
-            this.setState({
-                value: newValue,
-                filteredSuggestions,
-                activeSuggestionIndex: 0,
-                showSuggestions: true
-            });
+          }
+          return;
         }
+      
+        if (key === 'Backspace') {
+          if (start === end && start > 0) {
+            newValue = value.slice(0, start - 1) + value.slice(end);
+            newCursorPos = start - 1;
+          } else if (start !== end) {
+            newValue = value.slice(0, start) + value.slice(end);
+            newCursorPos = start;
+          }
+        } else {
+          newValue = value.slice(0, start) + key + value.slice(end);
+          newCursorPos = start + key.length;
+        }
+      
+        const filteredSuggestions = this.getFilteredSuggestions(newValue);
+      
+        this.setState(prev => {
+            if (
+              prev.filteredSuggestions === filteredSuggestions &&
+              prev.activeSuggestionIndex === 0 &&
+              prev.showSuggestions === true
+            ) {
+              return null;
+            }
+            return {
+              filteredSuggestions,
+              activeSuggestionIndex: 0,
+              showSuggestions: true
+            };
+          });
+      
+        this.updateInputValue(newValue, newCursorPos);
         this.inputRef?.focus();
     };
 
@@ -161,6 +171,15 @@ class SearchBox extends React.PureComponent {
 
     handleHover = (index) => {
         this.setState({ activeSuggestionIndex: index });
+    };
+
+    updateInputValue = (newValue, newCursorPos) => {
+        this.setState({ value: newValue }, () => {
+          requestAnimationFrame(() => {
+            this.inputRef.focus();
+            this.inputRef.setSelectionRange(newCursorPos, newCursorPos);
+          });
+        });
     };
 
     renderSuggestions = () => {
