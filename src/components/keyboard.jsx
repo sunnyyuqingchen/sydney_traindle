@@ -62,6 +62,45 @@ const BottomButtonRow = styled.div`
   width: 100%;
 `;
 
+const FooterButtonContainer = styled.div`
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const FooterButton = styled.div`
+  width: 35px;
+  height: 35px;
+  border-radius: 45px;
+  background-color: #f6891f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const FooterIconWrapper = styled.div`
+  cursor: pointer;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const FooterIcon = styled.img`
+  width: 25px;
+  height: 25px;
+`;
+
+const Text = styled.div`
+  margin-top: 4px;
+`;
+
 function Keyboard({onKeyPress, onLegendClick, onMapClick}) {
   const topRow = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
   const middleRow = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
@@ -94,25 +133,23 @@ function Keyboard({onKeyPress, onLegendClick, onMapClick}) {
       </KeyboardRow>
 
       <BottomButtonRow>
-        <div className='footer-button-container'>
-          <div className="cursor-hover" onClick={onLegendClick}>
-            <img src="./Icons/Legend.svg" width="35" height="35"></img>
-          </div>
-          <div>
-            Legend
-          </div>
-        </div>
+        <FooterButtonContainer>
+          <FooterIconWrapper onClick={onLegendClick}>
+            <img src="./Icons/Legend.svg" alt="Legend" width="35" height="35"/>
+          </FooterIconWrapper>
+          <div>Legend</div>
+        </FooterButtonContainer>
+
         <Key className="spacebar" onClick={() => handleKeyClick(' ')}>
           &nbsp;
         </Key>
-        <div className='footer-button-container'>
-          <div className="cursor-hover footer-button" onClick={onMapClick}>
-            <img src="./Icons/pin.svg"></img>
-          </div>
-          <div>
-            Map
-          </div>
-        </div>
+
+        <FooterButtonContainer>
+          <FooterButton className="cursor-hover" onClick={onMapClick}>
+            <FooterIcon src="./Icons/pin.svg" alt="Map" />
+          </FooterButton>
+          <Text>Map</Text>
+        </FooterButtonContainer>
       </BottomButtonRow>
 
     </KeyboardContainer>

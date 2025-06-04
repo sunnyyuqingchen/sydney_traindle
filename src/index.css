@@ -559,27 +559,6 @@ h2.answer-field-h2 {
   justify-content: space-between;
 }
 
-.footer-button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footer-button{
-  width: 35px;
-  height: 35px;
-  border-radius: 45px;
-  background-color: #f6891f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer-button img{
-  width: 25px;
-  height: 25px;
-}
-
 .answer-field-search {
   margin: 25px 0px 0px 20px;
   width: 330px;
@@ -595,10 +574,6 @@ h2.answer-field-h2 {
 
 .answer-field-search::placeholder {
   color: #fdfdfc;
-}
-
-.cursor-hover:hover {
-  cursor: pointer;
 }
 
 .center-text {
