@@ -29,7 +29,6 @@ const SingleSuggestionContainer = styled.div`
 
 const StyledInput = styled.input.attrs({
     tabIndex: -1,
-    readOnly: true,
   })`
     margin: 25px 0px 0px 20px;
     width: 300px;
@@ -100,6 +99,10 @@ class SearchBox extends React.PureComponent {
         const { value, filteredSuggestions, activeSuggestionIndex } = this.state;
 
         if (key === 'Enter') {
+            if (!filteredSuggestions.length || !value.trim()) {
+                return;
+            }
+
             const selectedGuess = filteredSuggestions[activeSuggestionIndex] || value;
             if (selectedGuess) {
                 this.props.submitGuess(selectedGuess);
@@ -138,6 +141,7 @@ class SearchBox extends React.PureComponent {
                 showSuggestions: true
             });
         }
+        this.inputRef?.focus();
     };
 
     handleClick = (suggestion) => {
@@ -179,10 +183,12 @@ class SearchBox extends React.PureComponent {
         <Autocomplete>
             <InputWithSuggestion>
             <StyledInput
+                ref={(ref) => this.inputRef = ref}
                 value={this.state.value}
                 placeholder={this.props.dummyText}
                 autoComplete="off"
                 inputMode="none"
+                onChange={() => {}}
                 />
             {this.renderSuggestions()}
             </InputWithSuggestion>
