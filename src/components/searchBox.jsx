@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Keyboard from "./Keyboard";
+import Keyboard from "./keyboard";
 import { Guess, GuessesLeft } from './guesses';
 
 const AutocompleteContainer = styled.div`
