@@ -6,7 +6,6 @@ import { Guess, GuessesLeft } from './guesses';
 import Timer from './timer';
 import SearchBox from './searchBox';
 import MobileContext from './mobileContext';
-import Keyboard from './keyboard';
 
 //takes props: 
 //  Function closeHTP = a function that changes the a state in the parent to control visibility
@@ -543,19 +542,6 @@ class MobileLayout extends React.Component {
                     )
                 }
             </div>
-            {/* <div className="answer-footer">
-                <div className="footer-button-container">
-                    <div onClick={() => this.toggleMap()} className="cursor-hover footer-button">
-                        <img onClick={() => this.toggleMap()} className="cursor-hover"src="./Icons/pin.svg"></img>
-                    </div>
-                    <div onClick={() => this.toggleHTP()} className="footer-button cursor-hover">
-                        <img onClick={() => this.toggleHTP()} className="cursor-hover" src="./Icons/help.svg"></img>
-                    </div>
-                </div>
-                <GuessesLeft/>
-                <div>
-                </div> 
-            </div> */}
         </div>
 
         //display wins creen
